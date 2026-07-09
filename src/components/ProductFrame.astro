@@ -1,0 +1,32 @@
+---
+interface Props {
+  title: string;
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  caption: string;
+  loading?: "eager" | "lazy";
+}
+
+const { title, src, alt, width, height, caption, loading = "lazy" } = Astro.props;
+---
+
+<figure class="group overflow-hidden rounded-lg border border-[#3d3934] bg-ink-2 shadow-hard-lg">
+  <div class="flex h-10 items-center gap-2 border-b border-line px-3">
+    <span class="h-2 w-2 rounded-full bg-coral"></span>
+    <span class="h-2 w-2 rounded-full bg-amber"></span>
+    <span class="h-2 w-2 rounded-full bg-cyan"></span>
+    <span class="metadata ml-2 truncate text-[9px] text-paper/45">{title}</span>
+  </div>
+  <img
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={loading}
+    decoding="async"
+    class="aspect-[16/10] w-full bg-ink object-cover object-top transition duration-300 group-hover:scale-[1.01]"
+  />
+  <figcaption class="border-t border-line px-4 py-3 text-sm text-paper/52">{caption}</figcaption>
+</figure>

@@ -1,0 +1,15 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ButtonLink from "@/components/ButtonLink.astro";
+---
+
+<BaseLayout title="Page not found" description="The requested Veedyoo page was not found." path="/404/">
+  <main class="mx-auto flex min-h-[62vh] w-full max-w-[760px] flex-col justify-center px-4 py-14 sm:px-6 lg:px-8">
+    <p class="metadata text-[10px] text-coral">404</p>
+    <h1 class="mt-4 font-display text-5xl font-bold">This scene is missing.</h1>
+    <p class="mt-5 text-base leading-7 text-paper/58">The page you requested is not part of the current Veedyoo landing site.</p>
+    <div class="mt-8">
+      <ButtonLink href="/" label="Back to homepage" />
+    </div>
+  </main>
+</BaseLayout>

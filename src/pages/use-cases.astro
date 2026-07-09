@@ -1,0 +1,35 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+
+const useCases = [
+  ["History documentaries", "Turn a person, event, or failure into a narrative arc with recurring motifs and scene continuity."],
+  ["Business breakdowns", "Explain companies, markets, founder decisions, and product strategy with charts, quotes, and comparison scenes."],
+  ["Tech explainers", "Make complex technical change understandable through timelines, diagrams, and calm narration."],
+  ["Systems videos", "Show how logistics, cities, infrastructure, or policy systems work across constraints and locations."],
+  ["Educational channels", "Structure lessons into chapters, scene prompts, and visual plans without jumping between disconnected tools."],
+  ["Faceless YouTube testing", "Explore multiple angles before committing to expensive final assets or render work."]
+];
+---
+
+<BaseLayout title="Use cases for AI documentary video creation" description="Use Veedyoo for faceless YouTube videos, documentary explainers, business breakdowns, systems videos, and educational content workflows." path="/use-cases/">
+  <main>
+    <PageHero
+      label="Use cases"
+      title="For creators turning research into faceless video plans"
+      description="Veedyoo is strongest when the video needs structure, narrative pacing, and visual continuity instead of isolated clip generation."
+      secondaryHref="/blog/"
+      secondaryLabel="Read guides"
+    />
+    <section class="mx-auto w-full max-w-[1180px] px-4 py-14 sm:px-6 lg:px-8">
+      <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        {useCases.map(([title, body]) => (
+          <article class="panel p-6">
+            <h2 class="font-display text-2xl font-bold leading-tight">{title}</h2>
+            <p class="mt-4 text-sm leading-7 text-paper/58">{body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

@@ -1,0 +1,30 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+---
+
+<BaseLayout title="About Veedyoo" description="Veedyoo is a web SaaS for AI explainer and documentary video creation, built around planning, continuity, previews, and final exports without visual drift." path="/about/">
+  <main>
+    <PageHero
+      label="About"
+      title="Veedyoo is a production studio for AI documentary videos"
+      description="It is built for creators who care about story structure, continuity, and scene logic, not just the novelty of generating a clip."
+      secondaryHref="/templates/"
+      secondaryLabel="View templates"
+    />
+    <section class="mx-auto grid w-full max-w-[1180px] gap-6 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:px-8">
+      <article class="panel p-6">
+        <h2 class="font-display text-2xl font-bold">Why it exists</h2>
+        <p class="mt-4 text-sm leading-7 text-paper/58">
+          Long-form AI video has a consistency problem. Scripts, assets, scene prompts, previews, and final renders drift apart when each scene is treated as a fresh prompt. Veedyoo keeps those decisions in one project workflow.
+        </p>
+      </article>
+      <article class="panel p-6">
+        <h2 class="font-display text-2xl font-bold">What it is building toward</h2>
+        <p class="mt-4 text-sm leading-7 text-paper/58">
+          A creator should be able to choose a style, define a topic, review angles, shape a script, storyboard the scenes, preview the edit, and render the final video without losing the creative spine.
+        </p>
+      </article>
+    </section>
+  </main>
+</BaseLayout>

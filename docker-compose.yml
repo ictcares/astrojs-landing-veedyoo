@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    environment:
+      - PORT
+      - PUBLIC_SITE_URL
+      - PUBLIC_APP_URL
+      - PUBLIC_SIGNUP_URL
+    ports:
+      - "3000:3000"

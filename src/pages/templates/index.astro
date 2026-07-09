@@ -1,0 +1,27 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import TemplateCard from "@/components/TemplateCard.astro";
+import { templates } from "@/data/templates";
+
+const title = "Video templates for faceless documentary creators";
+const description =
+  "Explore Veedyoo template styles for editorial explainers, business breakdowns, faceless documentaries, tech stories, minimal systems videos, and logistics explainers.";
+---
+
+<BaseLayout title={title} description={description} path="/templates/">
+  <main>
+    <PageHero
+      label="Templates"
+      title="Choose the creative language before you write the script"
+      description="Templates give solo creators a starting point for tone, pacing, visual motifs, scene types, and the kind of evidence the video should use."
+      secondaryHref="/faceless-video-maker/"
+      secondaryLabel="Faceless workflow"
+    />
+    <section class="mx-auto w-full max-w-[1180px] px-4 py-14 sm:px-6 lg:px-8">
+      <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        {templates.map((template) => <TemplateCard template={template} />)}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

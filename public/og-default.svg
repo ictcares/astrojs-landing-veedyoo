@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Veedyoo</title>
+  <desc id="desc">AI documentary video workflow for faceless creators.</desc>
+  <rect width="1200" height="630" fill="#141312"/>
+  <rect x="72" y="72" width="1056" height="486" rx="14" fill="#1d1b19" stroke="#322f2b" stroke-width="2"/>
+  <rect x="112" y="112" width="54" height="54" rx="10" fill="#f05a45"/>
+  <text x="132" y="147" font-family="Space Grotesk, Inter, sans-serif" font-size="28" font-weight="700" fill="#141312">V</text>
+  <text x="190" y="144" font-family="Space Grotesk, Inter, sans-serif" font-size="34" font-weight="700" fill="#f6eee0">Veedyoo</text>
+  <text x="112" y="226" font-family="JetBrains Mono, monospace" font-size="18" letter-spacing="4" fill="#f05a45">AI EXPLAINER VIDEO STUDIO</text>
+  <text x="112" y="306" font-family="Space Grotesk, Inter, sans-serif" font-size="64" font-weight="700" fill="#f6eee0">Turn any topic into</text>
+  <text x="112" y="382" font-family="Space Grotesk, Inter, sans-serif" font-size="64" font-weight="700" fill="#f6eee0">a documentary workflow.</text>
+  <rect x="112" y="440" width="210" height="56" rx="8" fill="#f05a45"/>
+  <text x="145" y="476" font-family="Space Grotesk, Inter, sans-serif" font-size="20" font-weight="700" fill="#141312">Create account</text>
+  <rect x="710" y="174" width="344" height="240" rx="10" fill="#141312" stroke="#3d3934" stroke-width="2"/>
+  <rect x="740" y="204" width="110" height="24" rx="4" fill="#087b83"/>
+  <rect x="862" y="204" width="160" height="24" rx="4" fill="#f3d29a"/>
+  <rect x="740" y="252" width="282" height="30" rx="5" fill="#262421"/>
+  <rect x="740" y="300" width="90" height="30" rx="5" fill="#f05a45"/>
+  <rect x="842" y="300" width="84" height="30" rx="5" fill="#19b8bd"/>
+  <rect x="938" y="300" width="84" height="30" rx="5" fill="#f7bc45"/>
+  <rect x="740" y="364" width="282" height="12" rx="3" fill="#322f2b"/>
+  <rect x="740" y="364" width="168" height="12" rx="3" fill="#19b8bd"/>
+</svg>

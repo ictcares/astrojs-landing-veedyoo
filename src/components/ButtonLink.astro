@@ -1,0 +1,26 @@
+---
+interface Props {
+  href: string;
+  variant?: "primary" | "secondary" | "ghost";
+  label: string;
+  class?: string;
+}
+
+const { href, variant = "primary", label, class: className = "" } = Astro.props;
+const variants = {
+  primary: "hard-button bg-coral text-ink",
+  secondary: "hard-button bg-sand text-ink",
+  ghost: "border border-[#3d3934] bg-transparent text-paper/70 hover:border-paper hover:text-paper"
+};
+---
+
+<a
+  href={href}
+  class={`inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 font-display text-sm font-bold transition ${variants[variant]} ${className}`}
+>
+  <span>{label}</span>
+  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 12h14"></path>
+    <path d="m13 6 6 6-6 6"></path>
+  </svg>
+</a>

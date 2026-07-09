@@ -1,0 +1,33 @@
+---
+import { site } from "@/data/site";
+---
+
+<footer class="border-t border-line bg-ink">
+  <div class="mx-auto grid w-full max-w-[1180px] gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_auto] lg:px-8">
+    <div>
+      <a href="/" class="inline-flex items-center gap-2 font-display text-lg font-bold text-paper" aria-label="Veedyoo homepage">
+        <img src="/brand/veedyoo-logo.png" width="34" height="34" alt="Veedyoo logo" class="h-[34px] w-[34px] rounded-md object-cover shadow-hard" loading="lazy" />
+        <span>Veedyoo</span>
+      </a>
+      <p class="mt-4 max-w-xl text-sm leading-6 text-paper/52">
+        AI explainer and documentary video creation for solo creators who want topic research, script planning, storyboards, previews, and final exports in one studio.
+      </p>
+      <p class="metadata mt-5 text-[10px] text-paper/35">STORY / BOARDS / MOTION / EXPORT</p>
+    </div>
+    <nav class="grid grid-cols-2 gap-x-8 gap-y-3 text-sm sm:grid-cols-4 lg:grid-cols-2" aria-label="Footer">
+      {
+        [...site.nav, ...site.footerNav].map((item) => (
+          <a href={item.href} class="text-paper/55 underline-offset-4 hover:text-paper hover:underline">
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+  <div class="border-t border-line">
+    <div class="mx-auto flex w-full max-w-[1180px] flex-col gap-2 px-4 py-5 text-xs text-paper/35 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+      <span>(c) {new Date().getFullYear()} Veedyoo. All rights reserved.</span>
+      <span>Built for creators. Deployed as a static Astro site.</span>
+    </div>
+  </div>
+</footer>

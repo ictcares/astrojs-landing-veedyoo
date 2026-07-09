@@ -1,0 +1,62 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ButtonLink from "@/components/ButtonLink.astro";
+import PageHero from "@/components/PageHero.astro";
+import { site } from "@/data/site";
+import { templates } from "@/data/templates";
+
+export function getStaticPaths() {
+  return templates.map((template) => ({
+    params: { slug: template.slug },
+    props: { template }
+  }));
+}
+
+const { template } = Astro.props;
+const title = `${template.name} video template`;
+const description = `${template.name} helps faceless creators plan ${template.bestFor.toLowerCase()} with ${template.tone.toLowerCase()} pacing, scene logic, and visual structure.`;
+---
+
+<BaseLayout title={title} description={description} path={`/templates/${template.slug}/`}>
+  <main>
+    <PageHero
+      label={`${template.pack} template`}
+      title={`${template.name} for faceless video planning`}
+      description={template.promise}
+      secondaryHref="/templates/"
+      secondaryLabel="All templates"
+    />
+    <section class="mx-auto grid w-full max-w-[1180px] gap-6 px-4 py-14 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+      <aside class="panel h-fit p-5">
+        <div class="metadata text-[10px] text-paper/40">Template profile</div>
+        <dl class="mt-5 space-y-4">
+          <div>
+            <dt class="metadata text-[9px] text-coral">Tone</dt>
+            <dd class="mt-1 text-sm text-paper/70">{template.tone}</dd>
+          </div>
+          <div>
+            <dt class="metadata text-[9px] text-sand">Best for</dt>
+            <dd class="mt-1 text-sm leading-6 text-paper/70">{template.bestFor}</dd>
+          </div>
+        </dl>
+      </aside>
+      <div>
+        <h2 class="font-display text-3xl font-bold">What this template gives the plan</h2>
+        <p class="mt-4 text-base leading-7 text-paper/58">
+          This template gives the production a specific shape before the first script draft. It helps the creator decide how the video should feel, what evidence should appear, and which visual language should repeat across scenes.
+        </p>
+        <div class="mt-8 grid gap-3 sm:grid-cols-3">
+          {template.motifs.map((motif) => (
+            <div class="rounded-lg border border-[#3d3934] bg-ink-2 p-4">
+              <div class="metadata text-[9px] text-cyan">Motif</div>
+              <div class="mt-3 font-display text-lg font-bold">{motif}</div>
+            </div>
+          ))}
+        </div>
+        <div class="mt-8">
+          <ButtonLink href={site.signupUrl} label="Create your first plan" />
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

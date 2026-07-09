@@ -1,0 +1,28 @@
+---
+import type { Template } from "@/data/templates";
+
+interface Props {
+  template: Template;
+}
+
+const { template } = Astro.props;
+const accentClass = {
+  coral: "bg-coral",
+  sand: "bg-sand",
+  cyan: "bg-cyan",
+  teal: "bg-teal",
+  amber: "bg-amber"
+}[template.accent];
+---
+
+<a href={`/templates/${template.slug}/`} class="group flex h-full min-w-0 flex-col rounded-lg border border-[#3d3934] bg-ink-2 p-5 text-paper transition hover:-translate-y-1 hover:border-paper hover:shadow-hard">
+  <div class="mb-5 flex items-center justify-between gap-3">
+    <span class="metadata rounded border border-[#4a4238] px-2 py-1 text-[9px] text-paper/48">{template.pack}</span>
+    <span class={`h-3 w-10 rounded-sm ${accentClass}`} aria-hidden="true"></span>
+  </div>
+  <h3 class="font-display text-xl font-bold leading-tight">{template.name}</h3>
+  <p class="mt-3 flex-1 text-sm leading-6 text-paper/58">{template.promise}</p>
+  <div class="mt-5 flex flex-wrap gap-2">
+    {template.motifs.map((motif) => <span class="rounded border border-line px-2 py-1 text-xs text-paper/48">{motif}</span>)}
+  </div>
+</a>

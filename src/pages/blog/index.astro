@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+
+const posts = await getCollection("blog");
+posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="Faceless YouTube workflow guides" description="Guides for faceless YouTube creators planning documentary-style videos, ideas, scripts, storyboards, and video workflows." path="/blog/">
+  <main>
+    <PageHero
+      label="Blog"
+      title="Guides for faceless YouTube production"
+      description="Practical frameworks for turning topic ideas into structured documentary-style video plans."
+      secondaryHref="/faceless-video-maker/"
+      secondaryLabel="Faceless video maker"
+    />
+    <section class="mx-auto w-full max-w-[1180px] px-4 py-14 sm:px-6 lg:px-8">
+      <div class="grid gap-4 md:grid-cols-2">
+        {posts.map((post) => (
+          <article class="rounded-lg border border-[#3d3934] bg-ink-2 p-6 transition hover:-translate-y-1 hover:border-paper hover:shadow-hard">
+            <p class="metadata text-[9px] text-cyan">{post.data.category}</p>
+            <h2 class="mt-4 font-display text-2xl font-bold leading-tight">
+              <a href={`/blog/${post.id}/`} class="underline-offset-4 hover:underline">{post.data.title}</a>
+            </h2>
+            <p class="mt-4 text-sm leading-6 text-paper/58">{post.data.description}</p>
+            <div class="metadata mt-5 text-[9px] text-paper/38">
+              <time datetime={post.data.pubDate.toISOString()}>{post.data.pubDate.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</time>
+              <span> / </span>
+              <span>{post.data.minutesRead} MIN READ</span>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

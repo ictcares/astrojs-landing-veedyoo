@@ -1,0 +1,288 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ButtonLink from "@/components/ButtonLink.astro";
+import ProductFrame from "@/components/ProductFrame.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import TemplateCard from "@/components/TemplateCard.astro";
+import { site, absoluteUrl } from "@/data/site";
+import { templates } from "@/data/templates";
+
+const title = "AI documentary video workflow for faceless creators";
+const description =
+  "Turn a raw topic into a documentary-style production plan with angles, scripts, storyboards, previews, and render-ready scene structure.";
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Veedyoo",
+  applicationCategory: "MultimediaApplication",
+  operatingSystem: "Web",
+  url: absoluteUrl("/"),
+  description,
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+    availability: "https://schema.org/PreOrder"
+  }
+};
+
+const workflow = [
+  ["01", "Choose the format", "Pick a documentary, editorial, tech, business, or systems style before writing."],
+  ["02", "Find the angle", "Turn the raw topic into a thesis, audience promise, and chapter spine."],
+  ["03", "Plan every scene", "Map narration, timing, visual prompts, assets, and continuity notes together."],
+  ["04", "Preview before export", "Check the story and pacing before spending on final render steps."]
+];
+
+const faqs = [
+  [
+    "Is Veedyoo just another AI video generator?",
+    "No. The promise is a workflow: topic, angle, bible, script, storyboard, preview, and render-ready scenes. Generation matters, but only after the plan is coherent."
+  ],
+  [
+    "Can I use it for faceless YouTube documentaries?",
+    "Yes. Phase 1 is positioned for solo creators making faceless explainer, documentary, tech, business, and systems videos."
+  ],
+  [
+    "Why preview before rendering?",
+    "Because long videos are expensive to fix after the story drifts. Previewing helps you catch weak scenes, repeated ideas, and bad pacing before paid provider calls."
+  ],
+  [
+    "Is paid pricing live on this site?",
+    "Not yet. Pricing is shown as coming soon. Account creation happens in the Veedyoo app."
+  ]
+];
+---
+
+<BaseLayout title={title} description={description} path="/" jsonLd={jsonLd}>
+  <main>
+    <section class="relative overflow-hidden border-b border-line">
+      <div class="mx-auto grid w-full max-w-[1180px] gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:py-18">
+        <div class="flex flex-col justify-center">
+          <p class="metadata text-[10px] text-coral">AI EXPLAINER VIDEO STUDIO</p>
+          <h1 class="mt-4 font-display text-5xl font-bold leading-[0.94] text-paper sm:text-6xl lg:text-7xl">
+            Turn any topic into a faceless documentary without visual drift.
+          </h1>
+          <p class="mt-6 max-w-xl text-base leading-7 text-paper/58 sm:text-lg">
+            Veedyoo helps solo creators shape the angle, continuity bible, script, storyboard, preview, and render-ready scenes before the expensive part starts.
+          </p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <ButtonLink href={site.signupUrl} label="Create your first plan" />
+            <ButtonLink href="/templates/" label="View templates" variant="ghost" />
+          </div>
+          <div class="mt-7 grid gap-3 sm:grid-cols-3">
+            <div class="panel p-4">
+              <div class="metadata text-[9px] text-paper/40">BEST FOR</div>
+              <div class="mt-2 font-display text-lg font-bold text-paper">Faceless YouTube</div>
+            </div>
+            <div class="panel p-4">
+              <div class="metadata text-[9px] text-paper/40">WORKFLOW</div>
+              <div class="mt-2 font-display text-lg font-bold text-paper">Topic to plan</div>
+            </div>
+            <div class="panel p-4">
+              <div class="metadata text-[9px] text-paper/40">PHASE 1</div>
+              <div class="mt-2 font-display text-lg font-bold text-paper">Creator beta</div>
+            </div>
+          </div>
+        </div>
+        <div class="min-w-0">
+          <ProductFrame
+            title="NEW PRODUCTION / REFERENCE DECODED"
+            src="/screens/wizard-production-plan.png"
+            alt="Veedyoo studio wizard showing a production plan step with extracted structure, topic, format, and generate controls."
+            width={1440}
+            height={950}
+            caption="The studio keeps topic, format, structure, and the next production step in one place."
+            loading="eager"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="border-b border-line bg-ink">
+      <div class="mx-auto w-full max-w-[1180px] px-4 py-14 sm:px-6 lg:px-8 lg:py-18">
+        <SectionHeader
+          label="Workflow"
+          title="The plan comes before the render button"
+          description="Faceless videos fail when scenes are generated one by one. Veedyoo keeps the story spine visible before anything becomes final."
+        />
+        <div class="grid gap-3 md:grid-cols-4">
+          {
+            workflow.map(([number, heading, body]) => (
+              <div class="panel p-5">
+                <div class="metadata text-[10px] text-coral">{number}</div>
+                <h3 class="mt-5 font-display text-xl font-bold leading-tight text-paper">{heading}</h3>
+                <p class="mt-3 text-sm leading-6 text-paper/56">{body}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="border-b border-line">
+      <div class="mx-auto grid w-full max-w-[1180px] gap-8 px-4 py-14 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-18">
+        <div>
+          <SectionHeader
+            label="Preview"
+            title="See the video logic before you pay for final output"
+            description="Inspect scene order, narration, visual direction, and pacing while the project is still cheap to change."
+          />
+          <div class="space-y-3">
+            <div class="rounded-lg border border-[#3d3934] bg-ink-2 p-4">
+              <div class="metadata text-[9px] text-cyan">CONTINUITY</div>
+              <p class="mt-2 text-sm leading-6 text-paper/58">Keep tone, palette, camera language, motifs, and forbidden drift attached to the project instead of buried in one prompt.</p>
+            </div>
+            <div class="rounded-lg border border-[#3d3934] bg-ink-2 p-4">
+              <div class="metadata text-[9px] text-sand">SCENES</div>
+              <p class="mt-2 text-sm leading-6 text-paper/58">Review every scene as narration, visual intent, timing, and asset direction instead of loose paragraphs.</p>
+            </div>
+          </div>
+        </div>
+        <ProductFrame
+          title="EDITOR / PREVIEW / EXPORT"
+          src="/screens/editor-preview.png"
+          alt="Veedyoo editor screen with scene list, video preview, narration panel, timeline blocks, and export controls."
+          width={1440}
+          height={900}
+          caption="The editor connects scene planning, preview, timeline blocks, and export controls."
+        />
+      </div>
+    </section>
+
+    <section class="border-b border-line bg-ink">
+      <div class="mx-auto w-full max-w-[1180px] px-4 py-14 sm:px-6 lg:px-8 lg:py-18">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <SectionHeader
+            label="Templates"
+            title="Start with a style that already knows the job"
+            description="Each template gives the project a starting language for pacing, visual motifs, scene types, and the kind of evidence the video should use."
+          />
+          <ButtonLink href="/templates/" label="Explore all templates" variant="ghost" class="mb-8 w-full sm:w-auto" />
+        </div>
+        <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {templates.slice(0, 6).map((template) => <TemplateCard template={template} />)}
+        </div>
+      </div>
+    </section>
+
+    <section class="border-b border-line">
+      <div class="mx-auto grid w-full max-w-[1180px] gap-8 px-4 py-14 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:px-8 lg:py-18">
+        <div>
+          <SectionHeader
+            label="Pricing"
+            title="Simple creator plans are coming"
+            description="Phase 1 keeps the pricing public but checkout-free while the creator workflow is hardened."
+          />
+          <div class="grid gap-3 sm:grid-cols-3">
+            {["Starter", "Creator", "Studio"].map((plan, index) => (
+              <div class={`rounded-lg border p-5 ${index === 1 ? "border-coral bg-ink-2 shadow-hard" : "border-[#3d3934] bg-ink-2"}`}>
+                <div class="font-display text-xl font-bold">{plan}</div>
+                <div class="metadata mt-3 text-[9px] text-sand">COMING SOON</div>
+                <p class="mt-4 text-sm leading-6 text-paper/54">
+                  {index === 0 ? "For testing topic-to-plan workflows." : index === 1 ? "For creators building weekly faceless documentaries." : "For heavier production and review."}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="panel p-6">
+          <div class="metadata text-[10px] text-cyan">WHY THIS MATTERS</div>
+          <h3 class="mt-4 font-display text-2xl font-bold leading-tight">Spend after the plan is worth rendering.</h3>
+          <p class="mt-4 text-sm leading-6 text-paper/58">
+            Veedyoo is designed around a low-friction planning path first, then confirmation before paid image, motion, or render work. That keeps experimentation cheap and production intentional.
+          </p>
+          <ButtonLink href={site.signupUrl} label="Create your first plan" class="mt-6 w-full sm:w-auto" />
+        </div>
+      </div>
+    </section>
+
+    <section class="border-b border-line bg-ink">
+      <div class="mx-auto grid w-full max-w-[1180px] gap-8 px-4 py-14 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8 lg:py-18">
+        <div class="flex flex-col justify-center">
+          <SectionHeader
+            label="Brand world"
+            title="Built like a production system, not a prompt toy"
+            description="The visual direction is intentionally dark, editorial, and tool-like: scene cards, timeline chips, continuity spines, and documentary research surfaces."
+          />
+          <div class="grid gap-3 sm:grid-cols-2">
+            <div class="panel p-4">
+              <div class="metadata text-[9px] text-coral">PROMISE</div>
+              <p class="mt-3 text-sm leading-6 text-paper/58">Nothing random. Every scene has a job.</p>
+            </div>
+            <div class="panel p-4">
+              <div class="metadata text-[9px] text-cyan">SYSTEM</div>
+              <p class="mt-3 text-sm leading-6 text-paper/58">Topic, angle, continuity, scenes, preview, export.</p>
+            </div>
+          </div>
+        </div>
+        <figure class="overflow-hidden rounded-lg border border-[#3d3934] bg-ink-2 shadow-hard-lg">
+          <img
+            src="/brand/veedyoo-brand-world.webp"
+            alt="Premium Veedyoo brand world board with logo, video planning UI, command center, documentary research wall, color system, and tagline."
+            width={1024}
+            height={1536}
+            loading="lazy"
+            decoding="async"
+            class="max-h-[760px] w-full bg-ink object-contain"
+          />
+          <figcaption class="border-t border-line px-4 py-3 text-sm text-paper/52">Generated brand-world asset based on the Veedyoo product metaphor: a continuity spine for faceless documentaries.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="border-b border-line">
+      <div class="mx-auto grid w-full max-w-[1180px] gap-8 px-4 py-14 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-18">
+        <ProductFrame
+          title="LIVE APP / SECURE ACCESS"
+          src="/screens/live-login.png"
+          alt="Live Veedyoo app login screen showing the Build long videos without visual drift message and secure access form."
+          width={1440}
+          height={900}
+          caption="The public site sends creators into the same Veedyoo app surface and visual system."
+        />
+        <div class="flex flex-col justify-center">
+          <SectionHeader
+            label="App handoff"
+            title="The landing page leads directly into the studio"
+            description="No public checkout and no form detours in Phase 1. The job of this site is to explain the workflow and send motivated creators to the app."
+          />
+          <ButtonLink href={site.signupUrl} label="Open Veedyoo app" class="w-full sm:w-auto" />
+        </div>
+      </div>
+    </section>
+
+    <section class="border-b border-line">
+      <div class="mx-auto w-full max-w-[1180px] px-4 py-14 sm:px-6 lg:px-8 lg:py-18">
+        <SectionHeader
+          label="Questions"
+          title="What creators usually want to know first"
+          description="The page should reduce uncertainty without pretending the product is finished beyond its current phase."
+        />
+        <div class="grid gap-4 md:grid-cols-2">
+          {
+            faqs.map(([question, answer]) => (
+              <article class="panel p-6">
+                <h3 class="font-display text-xl font-bold leading-tight text-paper">{question}</h3>
+                <p class="mt-3 text-sm leading-7 text-paper/58">{answer}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="mx-auto w-full max-w-[1180px] px-4 py-14 sm:px-6 lg:px-8 lg:py-18">
+        <div class="rounded-lg border border-coral bg-coral p-6 text-ink shadow-hard-lg sm:p-8">
+          <div class="metadata text-[10px] text-ink/70">Start the workflow</div>
+          <div class="mt-3 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+            <h2 class="max-w-3xl font-display text-3xl font-bold leading-tight sm:text-4xl">Create your first faceless documentary production plan.</h2>
+            <a href={site.signupUrl} class="inline-flex items-center justify-center rounded-md border-2 border-ink bg-sand px-5 py-3 font-display text-sm font-bold text-ink shadow-hard transition hover:-translate-y-0.5">
+              Create your first plan
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
