@@ -1,0 +1,66 @@
+---
+import { site } from "@/data/site";
+
+// Cookie-banner-style invitation strip pinned to the bottom of every page.
+// Dismissal is remembered in localStorage.
+const CODE = "LAUNCH";
+---
+
+<div
+  id="invite-banner"
+  class="fixed inset-x-0 bottom-0 z-50 hidden border-t border-line bg-ink-2/97 backdrop-blur"
+  role="region"
+  aria-label="Beta invitation"
+>
+  <div class="mx-auto flex w-full max-w-[1180px] flex-col items-start gap-3 px-4 py-3.5 sm:flex-row sm:items-center sm:gap-4 sm:px-6 lg:px-8">
+    <p class="min-w-0 flex-1 text-sm leading-6 text-paper/75">
+      <span class="metadata mr-2 text-[9px] text-coral">BETA ACCESS</span>
+      Use invitation code
+      <button
+        type="button"
+        id="invite-code"
+        class="mx-1 cursor-pointer rounded-md border border-[#3d3934] bg-ink px-2 py-0.5 font-mono text-[13px] font-bold tracking-widest text-sand transition hover:border-sand"
+        title="Click to copy"
+      >{CODE}</button>
+      at sign-up and start with a <strong class="text-paper">$2 free trial</strong> — limited to the first <strong class="text-sand">30 beta testers</strong>.
+    </p>
+    <div class="flex w-full items-center gap-2 sm:w-auto">
+      <a
+        href={`${site.signupUrl}`}
+        class="hard-button inline-flex flex-1 items-center justify-center rounded-md bg-coral px-4 py-2 font-display text-sm font-bold text-ink sm:flex-none"
+      >
+        Claim $2 trial →
+      </a>
+      <button
+        type="button"
+        id="invite-dismiss"
+        aria-label="Dismiss invitation banner"
+        class="rounded-md border border-[#3d3934] px-2.5 py-2 text-sm text-paper/50 transition hover:border-paper hover:text-paper"
+      >
+        ✕
+      </button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (() => {
+    const KEY = "veedyoo-invite-banner-dismissed";
+    const banner = document.getElementById("invite-banner");
+    if (!banner || localStorage.getItem(KEY) === "1") return;
+    banner.classList.remove("hidden");
+    document.getElementById("invite-dismiss")?.addEventListener("click", () => {
+      banner.classList.add("hidden");
+      localStorage.setItem(KEY, "1");
+    });
+    const codeBtn = document.getElementById("invite-code");
+    codeBtn?.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(codeBtn.textContent.trim());
+        const prev = codeBtn.textContent;
+        codeBtn.textContent = "COPIED!";
+        setTimeout(() => (codeBtn.textContent = prev), 1200);
+      } catch {}
+    });
+  })();
+</script>
