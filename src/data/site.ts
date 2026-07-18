@@ -4,16 +4,17 @@ export const site = {
   appUrl: import.meta.env.PUBLIC_APP_URL || "https://app.veedyoo.com",
   signupUrl: import.meta.env.PUBLIC_SIGNUP_URL || "https://app.veedyoo.com/login",
   description:
-    "Veedyoo helps solo faceless creators turn a raw topic into a documentary-style production plan without losing the story, style, or scene logic.",
+    "Veedyoo is an AI documentary video maker: type a topic and get a finished faceless documentary — script, narration, visuals, music and captions — then fine-tune it in a timeline editor and render in the cloud.",
   nav: [
-    { label: "Templates", href: "/templates/" },
+    { label: "Documentary maker", href: "/documentary-video-maker/" },
+    { label: "Faceless videos", href: "/faceless-video-maker/" },
     { label: "Use cases", href: "/use-cases/" },
-    { label: "Pricing", href: "/pricing/" },
-    { label: "Blog", href: "/blog/" }
+    { label: "About", href: "/about/" }
   ],
   footerNav: [
     { label: "About", href: "/about/" },
-    { label: "Contact", href: "/contact/" },
+    { label: "Script generator", href: "/youtube-script-generator/" },
+    { label: "Storyboard generator", href: "/storyboard-generator/" },
     { label: "Privacy", href: "/privacy/" },
     { label: "Terms", href: "/terms/" }
   ]

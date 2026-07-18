@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://veedyoo.com/sitemap-index.xml

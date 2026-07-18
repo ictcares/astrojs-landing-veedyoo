@@ -7,9 +7,9 @@ import TemplateCard from "@/components/TemplateCard.astro";
 import { site, absoluteUrl } from "@/data/site";
 import { templates } from "@/data/templates";
 
-const title = "AI documentary video workflow for faceless creators";
+const title = "AI Documentary Video Maker — Topic to Finished Film";
 const description =
-  "Turn a raw topic into a documentary-style production plan with angles, scripts, storyboards, previews, and render-ready scene structure.";
+  "Type a topic and Veedyoo makes the documentary: AI script, narration, imagery, music and captions. Edit every scene in a timeline editor, then render a faceless YouTube-ready video in the cloud. Credits from $5.";
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -20,54 +20,64 @@ const jsonLd = {
   description,
   offers: {
     "@type": "Offer",
-    price: "0",
+    price: "5",
     priceCurrency: "USD",
-    availability: "https://schema.org/PreOrder"
+    availability: "https://schema.org/InStock"
   }
 };
 
 const workflow = [
-  ["01", "Choose the format", "Pick a documentary, editorial, tech, business, or systems style before writing."],
-  ["02", "Find the angle", "Turn the raw topic into a thesis, audience promise, and chapter spine."],
-  ["03", "Plan every scene", "Map narration, timing, visual prompts, assets, and continuity notes together."],
-  ["04", "Preview before export", "Check the story and pacing before spending on final render steps."]
+  ["01", "Type a topic", "A ship, a company, a mystery — one sentence is enough to start a documentary."],
+  ["02", "AI directs it", "Script, professional narration, archival-style imagery, music and word-synced captions are generated in minutes."],
+  ["03", "Edit in the timeline", "A multi-track editor with live preview: rewrite narration, regenerate visuals, layer camera overlays, split and trim scenes."],
+  ["04", "Render in the cloud", "Massively parallel cloud rendering delivers the finished MP4 with subtitles in minutes, not hours."]
 ];
 
 const faqs = [
   [
     "Is Veedyoo just another AI video generator?",
-    "No. The promise is a workflow: topic, angle, bible, script, storyboard, preview, and render-ready scenes. Generation matters, but only after the plan is coherent."
+    "No. Veedyoo makes complete documentaries, not clips: a narrated story with 13 cinematic scene types — 3D globes, archival stills, whiteboard sketches, kinetic type, data scenes — assembled into a coherent film you can edit scene by scene."
   ],
   [
     "Can I use it for faceless YouTube documentaries?",
-    "Yes. Phase 1 is positioned for solo creators making faceless explainer, documentary, tech, business, and systems videos."
+    "Yes. That is exactly what it is built for: faceless documentary, explainer, tech, business, history, and mystery videos with professional narration and word-synced captions."
   ],
   [
-    "Why preview before rendering?",
-    "Because long videos are expensive to fix after the story drifts. Previewing helps you catch weak scenes, repeated ideas, and bad pacing before paid provider calls."
+    "Can I edit the video before rendering?",
+    "Yes. Every project opens in a CapCut-style timeline editor with live preview: rewrite and re-voice narration, regenerate any image, add camera overlays and lower-thirds, split scenes, swap music — then render when the cut is right."
   ],
   [
-    "Is paid pricing live on this site?",
-    "Not yet. Pricing is shown as coming soon. Account creation happens in the Veedyoo app."
+    "How much does it cost?",
+    "Sign-up is free with starter credits, and top-ups start at $5 pay-what-you-want. A typical one-minute documentary costs about a dollar in credits, including the cloud render."
   ]
 ];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map(([q, a]) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: { "@type": "Answer", text: a }
+  }))
+};
 ---
 
-<BaseLayout title={title} description={description} path="/" jsonLd={jsonLd}>
+<BaseLayout title={title} description={description} path="/" jsonLd={[jsonLd, faqJsonLd]}>
   <main>
     <section class="relative overflow-hidden border-b border-line">
       <div class="mx-auto grid w-full max-w-[1180px] gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:py-18">
         <div class="flex flex-col justify-center">
           <p class="metadata text-[10px] text-coral">AI EXPLAINER VIDEO STUDIO</p>
           <h1 class="mt-4 font-display text-5xl font-bold leading-[0.94] text-paper sm:text-6xl lg:text-7xl">
-            Turn any topic into a faceless documentary without visual drift.
+            Type a topic. Get a finished documentary.
           </h1>
           <p class="mt-6 max-w-xl text-base leading-7 text-paper/58 sm:text-lg">
-            Veedyoo helps solo creators shape the angle, continuity bible, script, storyboard, preview, and render-ready scenes before the expensive part starts.
+            The AI documentary maker for faceless creators: one sentence in — a cinematic film out, with script, narration, visuals, music and captions. Fine-tune every scene in a timeline editor, then render in the cloud.
           </p>
           <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href={site.signupUrl} label="Create your first plan" />
-            <ButtonLink href="/templates/" label="View templates" variant="ghost" />
+            <ButtonLink href={site.signupUrl} label="Make your first documentary" />
+            <ButtonLink href="/documentary-video-maker/" label="How it works" variant="ghost" />
           </div>
           <div class="mt-7 grid gap-3 sm:grid-cols-3">
             <div class="panel p-4">
@@ -76,11 +86,11 @@ const faqs = [
             </div>
             <div class="panel p-4">
               <div class="metadata text-[9px] text-paper/40">WORKFLOW</div>
-              <div class="mt-2 font-display text-lg font-bold text-paper">Topic to plan</div>
+              <div class="mt-2 font-display text-lg font-bold text-paper">Topic to video</div>
             </div>
             <div class="panel p-4">
-              <div class="metadata text-[9px] text-paper/40">PHASE 1</div>
-              <div class="mt-2 font-display text-lg font-bold text-paper">Creator beta</div>
+              <div class="metadata text-[9px] text-paper/40">PRICING</div>
+              <div class="mt-2 font-display text-lg font-bold text-paper">From $5</div>
             </div>
           </div>
         </div>
@@ -102,8 +112,8 @@ const faqs = [
       <div class="mx-auto w-full max-w-[1180px] px-4 py-14 sm:px-6 lg:px-8 lg:py-18">
         <SectionHeader
           label="Workflow"
-          title="The plan comes before the render button"
-          description="Faceless videos fail when scenes are generated one by one. Veedyoo keeps the story spine visible before anything becomes final."
+          title="From one sentence to a finished film"
+          description="Faceless videos fail when scenes are generated one by one. Veedyoo writes and renders the whole story as one film — and lets you direct every scene of it."
         />
         <div class="grid gap-3 md:grid-cols-4">
           {
@@ -157,7 +167,7 @@ const faqs = [
             title="Start with a style that already knows the job"
             description="Each template gives the project a starting language for pacing, visual motifs, scene types, and the kind of evidence the video should use."
           />
-          <ButtonLink href="/templates/" label="Explore all templates" variant="ghost" class="mb-8 w-full sm:w-auto" />
+          <ButtonLink href="/use-cases/" label="Explore use cases" variant="ghost" class="mb-8 w-full sm:w-auto" />
         </div>
         <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {templates.slice(0, 6).map((template) => <TemplateCard template={template} />)}
@@ -170,16 +180,16 @@ const faqs = [
         <div>
           <SectionHeader
             label="Pricing"
-            title="Simple creator plans are coming"
-            description="Phase 1 keeps the pricing public but checkout-free while the creator workflow is hardened."
+            title="Pay as you go — credits from $5"
+            description="No subscription. Free starter credits at sign-up, then top up any amount from $5 — a typical one-minute documentary costs about a dollar, cloud render included."
           />
           <div class="grid gap-3 sm:grid-cols-3">
             {["Starter", "Creator", "Studio"].map((plan, index) => (
               <div class={`rounded-lg border p-5 ${index === 1 ? "border-coral bg-ink-2 shadow-hard" : "border-[#3d3934] bg-ink-2"}`}>
                 <div class="font-display text-xl font-bold">{plan}</div>
-                <div class="metadata mt-3 text-[9px] text-sand">COMING SOON</div>
+                <div class="metadata mt-3 text-[9px] text-sand">CREDITS</div>
                 <p class="mt-4 text-sm leading-6 text-paper/54">
-                  {index === 0 ? "For testing topic-to-plan workflows." : index === 1 ? "For creators building weekly faceless documentaries." : "For heavier production and review."}
+                  {index === 0 ? "Free starter credits: make your first short documentary on us." : index === 1 ? "Top up from $5 for weekly faceless documentaries — pay only for what you render." : "Larger top-ups for heavier production, re-renders, and review cycles."}
                 </p>
               </div>
             ))}
@@ -189,9 +199,9 @@ const faqs = [
           <div class="metadata text-[10px] text-cyan">WHY THIS MATTERS</div>
           <h3 class="mt-4 font-display text-2xl font-bold leading-tight">Spend after the plan is worth rendering.</h3>
           <p class="mt-4 text-sm leading-6 text-paper/58">
-            Veedyoo is designed around a low-friction planning path first, then confirmation before paid image, motion, or render work. That keeps experimentation cheap and production intentional.
+            You see the full film in the live preview before spending a cent on rendering. Edit narration, visuals, and pacing for free — credits are only used when you generate assets or press render.
           </p>
-          <ButtonLink href={site.signupUrl} label="Create your first plan" class="mt-6 w-full sm:w-auto" />
+          <ButtonLink href={site.signupUrl} label="Start free" class="mt-6 w-full sm:w-auto" />
         </div>
       </div>
     </section>
