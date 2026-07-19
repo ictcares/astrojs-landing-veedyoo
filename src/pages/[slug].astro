@@ -49,6 +49,18 @@ const { page } = Astro.props;
           </article>
         ))}
       </div>
+      <section class="mt-10 border-t border-line pt-10" aria-labelledby="related-guides-title">
+        <p class="metadata text-[9px] text-cyan">RELATED GUIDES</p>
+        <h2 id="related-guides-title" class="mt-3 font-display text-3xl font-bold">Plan the next part of the workflow</h2>
+        <div class="mt-6 grid gap-4 md:grid-cols-3">
+          {page.relatedGuides.map((guide) => (
+            <a href={guide.href} class="rounded-lg border border-line bg-ink-2 p-5 transition hover:-translate-y-1 hover:border-paper hover:shadow-hard">
+              <span class="font-display text-lg font-bold text-paper">{guide.label}</span>
+              <span class="mt-2 block text-sm leading-6 text-paper/58">{guide.description}</span>
+            </a>
+          ))}
+        </div>
+      </section>
       <div class="mt-8 rounded-lg border border-coral bg-coral p-6 text-ink shadow-hard">
         <h2 class="font-display text-3xl font-bold">Start with one topic and build the plan.</h2>
         <p class="mt-3 max-w-2xl text-sm leading-6 text-ink/72">Create an account, open the studio, and turn your first faceless video idea into a structured project.</p>

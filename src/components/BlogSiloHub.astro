@@ -1,0 +1,121 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import BlogCard from "@/components/BlogCard.astro";
+import { BLOG_SILOS, BLOG_SILO_ORDER, type BlogSiloSlug } from "@/data/blogSilos";
+import { absoluteUrl } from "@/data/site";
+
+interface Props {
+  silo: BlogSiloSlug;
+}
+
+const { silo: siloSlug } = Astro.props;
+const silo = BLOG_SILOS[siloSlug];
+const path = `/blog/${siloSlug}/`;
+const posts = (await getCollection("blog"))
+  .filter((post) => post.data.silo === siloSlug)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const otherSilos = BLOG_SILO_ORDER.filter((candidate) => candidate !== siloSlug);
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: silo.title,
+    description: silo.description,
+    url: absoluteUrl(path),
+    hasPart: posts.map((post) => ({
+      "@type": "BlogPosting",
+      name: post.data.title,
+      url: absoluteUrl(`/blog/${post.id}/`)
+    }))
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
+      { "@type": "ListItem", position: 2, name: "Blog", item: absoluteUrl("/blog/") },
+      { "@type": "ListItem", position: 3, name: silo.label, item: absoluteUrl(path) }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `${silo.label} guides`,
+    itemListElement: posts.map((post, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: post.data.title,
+      url: absoluteUrl(`/blog/${post.id}/`)
+    }))
+  }
+];
+---
+
+<BaseLayout title={silo.title} description={silo.description} path={path} jsonLd={jsonLd}>
+  <main>
+    <PageHero
+      label={silo.eyebrow}
+      title={silo.title}
+      description={silo.description}
+      ctaLabel="Create a documentary"
+      secondaryHref={silo.pillarHref}
+      secondaryLabel={silo.pillarLabel}
+    />
+
+    <section class="mx-auto w-full max-w-[1180px] px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="silo-guides-title">
+      <nav aria-label="Breadcrumb" class="metadata text-[10px] text-paper/42">
+        <ol class="flex flex-wrap items-center gap-2">
+          <li><a href="/" class="hover:text-paper">HOME</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="/blog/" class="hover:text-paper">BLOG</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page" class="text-paper/60">{silo.label}</li>
+        </ol>
+      </nav>
+
+      <div class="mt-8 grid gap-5 border-b border-line pb-10 lg:grid-cols-[1.4fr_0.6fr] lg:items-start">
+        <div>
+          <p class="max-w-3xl text-lg leading-8 text-paper/68">{silo.summary}</p>
+        </div>
+        <a href={silo.pillarHref} class="rounded-lg border border-coral bg-coral p-5 text-ink shadow-hard transition hover:-translate-y-1">
+          <span class="metadata text-[9px]">PRODUCT GUIDE</span>
+          <span class="mt-2 block font-display text-xl font-bold">{silo.pillarLabel}</span>
+          <span class="mt-2 block text-sm leading-6 text-ink/70">See the relevant Veedyoo workflow, what it produces, and where to start.</span>
+        </a>
+      </div>
+
+      <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p class="metadata text-[9px] text-cyan">{posts.length} GUIDES</p>
+          <h2 id="silo-guides-title" class="mt-3 font-display text-3xl font-bold text-paper">Read the {silo.label.toLowerCase()} guides</h2>
+        </div>
+        <a href="/blog/" class="text-sm font-semibold text-cyan underline underline-offset-4">Browse every guide</a>
+      </div>
+
+      <div class="mt-7 grid gap-4 md:grid-cols-2">
+        {posts.map((post) => <BlogCard post={post} headingLevel="h3" />)}
+      </div>
+    </section>
+
+    <section class="border-t border-line bg-ink-2/45">
+      <div class="mx-auto w-full max-w-[1180px] px-4 py-12 sm:px-6 lg:px-8">
+        <p class="metadata text-[9px] text-coral">EXPLORE THE FULL LIBRARY</p>
+        <h2 class="mt-3 font-display text-3xl font-bold text-paper">Continue with another topic</h2>
+        <div class="mt-6 grid gap-4 md:grid-cols-2">
+          {otherSilos.map((otherSlug) => {
+            const other = BLOG_SILOS[otherSlug];
+            return (
+              <a href={`/blog/${otherSlug}/`} class="rounded-lg border border-line bg-ink-2 p-5 transition hover:-translate-y-1 hover:border-paper hover:shadow-hard">
+                <span class="metadata text-[9px] text-cyan">{other.eyebrow}</span>
+                <span class="mt-3 block font-display text-xl font-bold text-paper">{other.title}</span>
+                <span class="mt-2 block text-sm leading-6 text-paper/58">{other.description}</span>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

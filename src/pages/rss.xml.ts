@@ -8,7 +8,7 @@ export async function GET(context: { site: URL }) {
 
   return rss({
     title: "Veedyoo Blog",
-    description: "Faceless YouTube workflow guides and documentary video planning frameworks.",
+    description: "Evidence-led AI documentary workflow, comparison, cost, script, and storyboard guides.",
     site: context.site ?? new URL(site.baseUrl),
     items: posts.map((post) => ({
       title: post.data.title,

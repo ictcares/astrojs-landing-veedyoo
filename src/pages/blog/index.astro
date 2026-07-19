@@ -2,37 +2,90 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/PageHero.astro";
+import BlogCard from "@/components/BlogCard.astro";
+import { BLOG_SILOS, BLOG_SILO_ORDER } from "@/data/blogSilos";
+import { absoluteUrl } from "@/data/site";
 
 const posts = await getCollection("blog");
 posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const postsBySilo = Object.fromEntries(
+  BLOG_SILO_ORDER.map((silo) => [silo, posts.filter((post) => post.data.silo === silo)])
+);
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Veedyoo AI documentary production guides",
+    description: "Evidence-led guides for AI documentary production, faceless YouTube workflows, tools, comparisons, and costs.",
+    url: absoluteUrl("/blog/"),
+    hasPart: BLOG_SILO_ORDER.map((silo) => ({
+      "@type": "CollectionPage",
+      name: BLOG_SILOS[silo].title,
+      url: absoluteUrl(`/blog/${silo}/`)
+    }))
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Veedyoo documentary production guides",
+    itemListElement: posts.map((post, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: absoluteUrl(`/blog/${post.id}/`),
+      name: post.data.title
+    }))
+  }
+];
 ---
 
-<BaseLayout title="Faceless YouTube workflow guides" description="Guides for faceless YouTube creators planning documentary-style videos, ideas, scripts, storyboards, and video workflows." path="/blog/">
+<BaseLayout title="AI documentary and faceless YouTube guides" description="Evidence-led guides for AI documentary production, faceless YouTube workflows, video tools, platform comparisons, and production costs." path="/blog/" jsonLd={jsonLd}>
   <main>
     <PageHero
       label="Blog"
-      title="Guides for faceless YouTube production"
-      description="Practical frameworks for turning topic ideas into structured documentary-style video plans."
-      secondaryHref="/faceless-video-maker/"
-      secondaryLabel="Faceless video maker"
+      title="Build better AI documentaries"
+      description="Choose a path based on the work in front of you: plan the film, build a faceless channel workflow, or compare AI video tools and costs."
+      secondaryHref="/documentary-video-maker/"
+      secondaryLabel="Documentary video maker"
     />
-    <section class="mx-auto w-full max-w-[1180px] px-4 py-14 sm:px-6 lg:px-8">
-      <div class="grid gap-4 md:grid-cols-2">
-        {posts.map((post) => (
-          <article class="rounded-lg border border-[#3d3934] bg-ink-2 p-6 transition hover:-translate-y-1 hover:border-paper hover:shadow-hard">
-            <p class="metadata text-[9px] text-cyan">{post.data.category}</p>
-            <h2 class="mt-4 font-display text-2xl font-bold leading-tight">
-              <a href={`/blog/${post.id}/`} class="underline-offset-4 hover:underline">{post.data.title}</a>
-            </h2>
-            <p class="mt-4 text-sm leading-6 text-paper/58">{post.data.description}</p>
-            <div class="metadata mt-5 text-[9px] text-paper/38">
-              <time datetime={post.data.pubDate.toISOString()}>{post.data.pubDate.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</time>
-              <span> / </span>
-              <span>{post.data.minutesRead} MIN READ</span>
-            </div>
-          </article>
-        ))}
+    <section class="mx-auto w-full max-w-[1180px] px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="topic-paths-title">
+      <p class="metadata text-[9px] text-coral">THREE TOPIC PATHS</p>
+      <h2 id="topic-paths-title" class="mt-3 font-display text-3xl font-bold text-paper">Start with the decision you need to make</h2>
+      <div class="mt-7 grid gap-4 lg:grid-cols-3">
+        {BLOG_SILO_ORDER.map((siloSlug, index) => {
+          const silo = BLOG_SILOS[siloSlug];
+          const count = postsBySilo[siloSlug].length;
+          return (
+            <a href={`/blog/${siloSlug}/`} class="rounded-lg border border-line bg-ink-2 p-6 transition hover:-translate-y-1 hover:border-paper hover:shadow-hard">
+              <span class="metadata text-[9px] text-cyan">0{index + 1} / {count} GUIDES</span>
+              <span class="mt-4 block font-display text-2xl font-bold leading-tight text-paper">{silo.title}</span>
+              <span class="mt-3 block text-sm leading-6 text-paper/58">{silo.description}</span>
+              <span class="mt-5 block text-sm font-semibold text-coral">Open topic hub →</span>
+            </a>
+          );
+        })}
       </div>
     </section>
+
+    {BLOG_SILO_ORDER.map((siloSlug, index) => {
+      const silo = BLOG_SILOS[siloSlug];
+      const siloPosts = postsBySilo[siloSlug];
+      return (
+        <section class:list={["border-t border-line", index % 2 === 1 && "bg-ink-2/35"]} aria-labelledby={`${siloSlug}-title`}>
+          <div class="mx-auto w-full max-w-[1180px] px-4 py-14 sm:px-6 lg:px-8">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p class="metadata text-[9px] text-cyan">{silo.eyebrow}</p>
+                <h2 id={`${siloSlug}-title`} class="mt-3 font-display text-3xl font-bold text-paper">{silo.title}</h2>
+                <p class="mt-3 max-w-2xl text-sm leading-6 text-paper/58">{silo.summary}</p>
+              </div>
+              <a href={`/blog/${siloSlug}/`} class="shrink-0 text-sm font-semibold text-cyan underline underline-offset-4">View all {siloPosts.length} guides</a>
+            </div>
+            <div class="mt-7 grid gap-4 md:grid-cols-2">
+              {siloPosts.map((post) => <BlogCard post={post} headingLevel="h3" />)}
+            </div>
+          </div>
+        </section>
+      );
+    })}
   </main>
 </BaseLayout>

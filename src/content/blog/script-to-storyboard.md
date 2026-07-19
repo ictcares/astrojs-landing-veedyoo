@@ -2,13 +2,30 @@
 title: "How to turn a faceless YouTube script into a storyboard"
 description: "A simple method for converting narration into scenes with timing, visual purpose, and continuity notes."
 pubDate: 2026-07-07
+updatedDate: 2026-07-19
 category: "Storyboard"
+silo: "ai-documentary-production"
 minutesRead: 5
+image: "/blog/script-to-storyboard-cover.webp"
+imageAlt: "Current Veedyoo editor showing a Voyager 1 scene, narration, generated media, preview, and multi-track timeline"
+imageCaption: "The storyboard remains connected to the live preview and final edit instead of becoming separate planning paperwork."
+author: "Veedyoo Editorial Team"
+tags:
+  - "script to storyboard"
+  - "faceless YouTube storyboard"
+  - "documentary scene planning"
+about:
+  - "Video storyboarding"
+  - "Documentary scene planning"
+mentions:
+  - "Veedyoo"
+related:
+  - "how-to-make-ai-documentary-video"
+  - "scene-based-ai-video-vs-stock-footage"
+  - "maps-timelines-data-scenes-ai-video"
 ---
 
-Many creators write a full script first and then ask, "What should be on screen?" That creates a problem: the visuals become decoration instead of part of the argument.
-
-A better workflow is to split the script into scenes while you write.
+Turn a faceless YouTube script into a storyboard by splitting narration into purposeful scenes while you write. Give every scene one job, a realistic duration, a visual treatment, and continuity notes. This keeps maps, evidence, imagery, text, and motion connected to the argument instead of adding decorative footage after the script is finished.
 
 <figure class="product-figure">
   <img src="/screens/editor-preview.png" width="1440" height="900" loading="lazy" decoding="async" alt="Current Veedyoo editor showing Voyager 1 scenes, a Jupiter preview, narration, generated imagery, and the timeline." />

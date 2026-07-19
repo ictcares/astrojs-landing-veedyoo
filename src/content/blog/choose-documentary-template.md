@@ -1,12 +1,31 @@
 ---
-title: "How to choose the right documentary template for a faceless video"
+title: "How to Choose a Documentary Template for Faceless Video"
 description: "Pick the template style that matches your topic, evidence, pacing, and viewer expectation."
 pubDate: 2026-07-06
+updatedDate: 2026-07-19
 category: "Templates"
+silo: "ai-documentary-production"
 minutesRead: 4
+image: "/blog/choose-documentary-template-cover.webp"
+imageAlt: "Current Veedyoo production screen showing target length and eight documentary genre choices"
+imageCaption: "The current Veedyoo workflow starts genre and visual direction before the plan is generated."
+author: "Veedyoo Editorial Team"
+tags:
+  - "documentary template"
+  - "faceless video style"
+  - "AI documentary genre"
+about:
+  - "Documentary templates"
+  - "Faceless video art direction"
+mentions:
+  - "Veedyoo"
+related:
+  - "how-to-make-ai-documentary-video"
+  - "scene-based-ai-video-vs-stock-footage"
+  - "maps-timelines-data-scenes-ai-video"
 ---
 
-Templates are useful when they make decisions clearer. They should not make every video look the same. The right template gives your topic a starting structure, tone, and visual grammar.
+Choose a documentary template by matching the story's evidence, pacing, argument, and viewer expectation. Editorial fits thesis-led explanations, business fits incentives and numbers, documentary fits tension and consequence, and systems fits routes and mechanisms. The template should establish a useful visual grammar without forcing every topic into the same film.
 
 <figure class="product-figure">
   <img src="/screens/new-documentary-genres.png" width="1440" height="900" loading="lazy" decoding="async" alt="Current Veedyoo new-documentary screen showing target length and eight documentary genre choices." />

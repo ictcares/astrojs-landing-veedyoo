@@ -1,14 +1,31 @@
 ---
-title: "A practical faceless YouTube workflow from topic to production plan"
+title: "Faceless YouTube Workflow: Topic to Production Plan"
 description: "A step-by-step workflow for solo creators who want to turn a topic into a documentary-style video plan before rendering."
 pubDate: 2026-07-09
+updatedDate: 2026-07-19
 category: "Workflow"
+silo: "faceless-youtube"
 minutesRead: 5
+image: "/blog/faceless-youtube-workflow-cover.webp"
+imageAlt: "Current Veedyoo Voyager 1 storyboard showing narration, scene types, timing, and production notes"
+imageCaption: "A faceless workflow becomes reviewable when narration, scene purpose, timing, and media live in one plan."
+author: "Veedyoo Editorial Team"
+tags:
+  - "faceless YouTube workflow"
+  - "documentary production plan"
+  - "AI video workflow"
+about:
+  - "Faceless YouTube production"
+  - "Documentary planning"
+mentions:
+  - "Veedyoo"
+related:
+  - "can-you-monetize-ai-documentary-videos"
+  - "video-idea-frameworks"
+  - "how-to-make-ai-documentary-video"
 ---
 
-The hardest part of faceless YouTube is not only writing a script. The hard part is keeping the idea, voice, evidence, visuals, pacing, and final render aligned long enough to become a coherent video.
-
-Start with the topic, then slow down before generating assets.
+A practical faceless YouTube workflow starts with one clear viewer promise, builds a conflict and chapter structure, defines the visual language, turns narration into an editable scene plan, previews the whole story, and only then generates expensive assets or renders. The goal is to keep the idea, evidence, voice, visuals, and pacing aligned through the final export.
 
 <figure class="product-figure">
   <img src="/screens/voyager-storyboard.png" width="1440" height="900" loading="lazy" decoding="async" alt="Current Veedyoo Voyager 1 project showing its title, production details, and first storyboard scenes with narration and timing." />

@@ -10,6 +10,7 @@ interface Props {
   description: string;
   path?: string;
   image?: string;
+  imageAlt?: string;
   type?: "website" | "article";
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
@@ -19,13 +20,15 @@ const {
   description,
   path = Astro.url.pathname,
   image = "/og-default.svg",
+  imageAlt = description,
   type = "website",
   jsonLd
 } = Astro.props;
 
 const canonical = absoluteUrl(path);
 const imageUrl = absoluteUrl(image);
-const pageTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
+// Article headlines already carry their search intent and should not be lengthened by a forced brand suffix.
+const pageTitle = title.includes(site.name) || type === "article" ? title : `${title} | ${site.name}`;
 ---
 
 <!doctype html>
@@ -47,10 +50,12 @@ const pageTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:alt" content={imageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageUrl} />
+    <meta name="twitter:image:alt" content={imageAlt} />
     {jsonLd ? <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} /> : null}
   </head>
   <body>

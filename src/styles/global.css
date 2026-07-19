@@ -141,6 +141,16 @@
     text-underline-offset: 4px;
   }
 
+  .content-prose p + p,
+  .content-prose p + ul,
+  .content-prose p + ol,
+  .content-prose ul + p,
+  .content-prose ol + p,
+  .content-prose .product-figure + p,
+  .content-prose .table-scroll + p {
+    margin-top: 1rem;
+  }
+
   .content-prose ul,
   .content-prose ol {
     padding-left: 1.2rem;
@@ -171,6 +181,99 @@
     color: rgba(246, 238, 224, 0.58);
     font-size: 0.875rem;
     line-height: 1.5;
+  }
+
+  .article-cover,
+  .article-disclosure {
+    overflow: hidden;
+    border: 1px solid #3d3934;
+    border-radius: 8px;
+    background: #1d1b19;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.75);
+  }
+
+  .article-cover img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .article-cover figcaption {
+    border-top: 1px solid #322f2b;
+    padding: 0.75rem 1rem;
+    color: rgba(246, 238, 224, 0.58);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .article-disclosure {
+    padding: 1rem 1.25rem;
+    box-shadow: none;
+  }
+
+  .content-prose .table-scroll {
+    margin: 2rem 0;
+    overflow-x: auto;
+    border: 1px solid #3d3934;
+    border-radius: 8px;
+    background: #1d1b19;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.75);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .content-prose .table-scroll:focus-visible {
+    outline: 2px solid #19b8bd;
+    outline-offset: 3px;
+  }
+
+  .content-prose table {
+    width: 100%;
+    min-width: 680px;
+    border-collapse: collapse;
+    color: rgba(246, 238, 224, 0.72);
+    font-size: 0.875rem;
+    line-height: 1.55;
+  }
+
+  .content-prose caption {
+    padding: 1rem;
+    color: #f6eee0;
+    font-family: "Space Grotesk", "Inter", system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: left;
+  }
+
+  .content-prose th,
+  .content-prose td {
+    border-top: 1px solid #322f2b;
+    padding: 0.8rem 1rem;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .content-prose th {
+    color: #f3d29a;
+    font-weight: 700;
+  }
+
+  .content-prose thead th {
+    background: #262421;
+    color: #f6eee0;
+  }
+
+  .content-prose tbody tr:nth-child(even) {
+    background: rgba(246, 238, 224, 0.025);
+  }
+
+  .content-prose .source-note {
+    margin: 1.25rem 0;
+    border-left: 3px solid #19b8bd;
+    padding: 0.75rem 1rem;
+    background: rgba(25, 184, 189, 0.07);
+    color: rgba(246, 238, 224, 0.64);
+    font-size: 0.875rem;
+    line-height: 1.6;
   }
 }
 

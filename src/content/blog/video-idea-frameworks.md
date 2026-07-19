@@ -1,12 +1,31 @@
 ---
-title: "Five faceless video idea frameworks that are easier to produce"
+title: "5 Faceless Video Idea Frameworks for Easier Production"
 description: "Use these idea shapes when you need video topics that naturally become chapters, scenes, and visual proof."
 pubDate: 2026-07-08
+updatedDate: 2026-07-19
 category: "Ideas"
+silo: "faceless-youtube"
 minutesRead: 4
+image: "/blog/video-idea-frameworks-cover.webp"
+imageAlt: "Current Veedyoo new-documentary screen showing the topic prompt, AI director choices, and target length"
+imageCaption: "A strong faceless video idea gives the production plan a specific question, angle, and natural structure."
+author: "Veedyoo Editorial Team"
+tags:
+  - "faceless video ideas"
+  - "YouTube documentary ideas"
+  - "video topic frameworks"
+about:
+  - "Faceless video ideation"
+  - "Documentary topic development"
+mentions:
+  - "Veedyoo"
+related:
+  - "faceless-youtube-workflow"
+  - "can-you-monetize-ai-documentary-videos"
+  - "how-to-make-ai-documentary-video"
 ---
 
-Some video ideas are easier to produce because they already imply structure. For solo creators, that matters. A topic that naturally becomes chapters is easier to script, storyboard, preview, and render.
+The easiest faceless video ideas to produce already imply a story shape. Start with a hidden system, rise and fall, decisive turning point, structured comparison, or misunderstood failure. Each framework naturally creates chapters, evidence needs, and visual scenes, making the topic easier to script, storyboard, preview, and render as a coherent documentary.
 
 <figure class="product-figure">
   <img src="/screens/wizard-production-plan.png" width="1440" height="900" loading="lazy" decoding="async" alt="Current Veedyoo new-documentary screen with a blank topic field and three AI director choices." />
