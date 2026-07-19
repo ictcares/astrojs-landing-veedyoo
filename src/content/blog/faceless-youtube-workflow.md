@@ -10,6 +10,11 @@ The hardest part of faceless YouTube is not only writing a script. The hard part
 
 Start with the topic, then slow down before generating assets.
 
+<figure class="product-figure">
+  <img src="/screens/voyager-storyboard.png" width="1440" height="900" loading="lazy" decoding="async" alt="Current Veedyoo Voyager 1 project showing its title, production details, and first storyboard scenes with narration and timing." />
+  <figcaption>Voyager 1 inside the current Veedyoo workflow: one project carries the narration, timing, scene type, visual direction, and generated media.</figcaption>
+</figure>
+
 ## 1. Write the promise in one sentence
 
 The promise is what the viewer gets for staying. A good promise is specific enough to guide every scene.

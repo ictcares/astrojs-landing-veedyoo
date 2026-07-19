@@ -8,6 +8,11 @@ minutesRead: 4
 
 Some video ideas are easier to produce because they already imply structure. For solo creators, that matters. A topic that naturally becomes chapters is easier to script, storyboard, preview, and render.
 
+<figure class="product-figure">
+  <img src="/screens/wizard-production-plan.png" width="1440" height="900" loading="lazy" decoding="async" alt="Current Veedyoo new-documentary screen with a blank topic field and three AI director choices." />
+  <figcaption>The current starting point is deliberately small: describe the idea, choose the director, then set the target length and genre.</figcaption>
+</figure>
+
 ## 1. The hidden system
 
 This framework explains the invisible machinery behind something familiar.

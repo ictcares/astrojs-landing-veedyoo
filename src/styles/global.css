@@ -149,6 +149,29 @@
   .content-prose li + li {
     margin-top: 0.45rem;
   }
+
+  .content-prose .product-figure {
+    margin: 2rem 0;
+    overflow: hidden;
+    border: 1px solid #3d3934;
+    border-radius: 8px;
+    background: #1d1b19;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.75);
+  }
+
+  .content-prose .product-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .content-prose .product-figure figcaption {
+    border-top: 1px solid #322f2b;
+    padding: 0.75rem 1rem;
+    color: rgba(246, 238, 224, 0.58);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
 }
 
 @keyframes ef-fade-up {

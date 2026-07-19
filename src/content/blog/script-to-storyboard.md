@@ -10,6 +10,11 @@ Many creators write a full script first and then ask, "What should be on screen?
 
 A better workflow is to split the script into scenes while you write.
 
+<figure class="product-figure">
+  <img src="/screens/editor-preview.png" width="1440" height="900" loading="lazy" decoding="async" alt="Current Veedyoo editor showing Voyager 1 scenes, a Jupiter preview, narration, generated imagery, and the timeline." />
+  <figcaption>The Voyager 1 demo in the current editor: narration, visual treatment, timing, generated media, and the whole cut remain connected.</figcaption>
+</figure>
+
 ## Start with scene jobs
 
 Every scene should have a job. It might introduce a question, explain a mechanism, show evidence, compare two options, or close a chapter.

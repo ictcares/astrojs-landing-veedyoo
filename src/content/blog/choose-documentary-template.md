@@ -8,6 +8,11 @@ minutesRead: 4
 
 Templates are useful when they make decisions clearer. They should not make every video look the same. The right template gives your topic a starting structure, tone, and visual grammar.
 
+<figure class="product-figure">
+  <img src="/screens/new-documentary-genres.png" width="1440" height="900" loading="lazy" decoding="async" alt="Current Veedyoo new-documentary screen showing target length and eight documentary genre choices." />
+  <figcaption>Veedyoo currently exposes the creative starting point as eight documentary genres, each with its own narrative register.</figcaption>
+</figure>
+
 ## Use editorial for argument-led topics
 
 Choose an editorial style when the video needs a clear thesis and supporting chapters. This works well for policy, cities, social change, and culture.
