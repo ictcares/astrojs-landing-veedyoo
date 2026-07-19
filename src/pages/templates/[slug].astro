@@ -27,7 +27,17 @@ const description = `${template.name} helps faceless creators plan ${template.be
       secondaryLabel="All templates"
     />
     <section class="mx-auto grid w-full max-w-[1180px] gap-6 px-4 py-14 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
-      <aside class="panel h-fit p-5">
+      <aside class="space-y-4">
+        {template.sample && template.sample.video && (
+          <div class="overflow-hidden rounded-lg border border-[#3d3934] bg-ink shadow-hard">
+            <video class="aspect-video w-full object-cover" controls preload="none" poster={template.sample.poster} src={template.sample.video} title={template.sample.title}></video>
+            <div class="p-4">
+              <h3 class="font-display text-base font-bold text-paper">{template.sample.title}</h3>
+              <p class="metadata mt-1.5 text-[9px] text-paper/45">{template.sample.meta}</p>
+            </div>
+          </div>
+        )}
+        <div class="panel h-fit p-5">
         <div class="metadata text-[10px] text-paper/40">Template profile</div>
         <dl class="mt-5 space-y-4">
           <div>
@@ -39,6 +49,7 @@ const description = `${template.name} helps faceless creators plan ${template.be
             <dd class="mt-1 text-sm leading-6 text-paper/70">{template.bestFor}</dd>
           </div>
         </dl>
+        </div>
       </aside>
       <div>
         <h2 class="font-display text-3xl font-bold">What this template gives the plan</h2>
@@ -54,7 +65,7 @@ const description = `${template.name} helps faceless creators plan ${template.be
           ))}
         </div>
         <div class="mt-8">
-          <ButtonLink href={site.signupUrl} label="Create your first plan" />
+          <ButtonLink href={site.signupUrl} label="Make a video in this style →" />
         </div>
       </div>
     </section>

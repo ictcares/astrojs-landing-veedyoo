@@ -4,17 +4,17 @@ import PageHero from "@/components/PageHero.astro";
 import TemplateCard from "@/components/TemplateCard.astro";
 import { templates } from "@/data/templates";
 
-const title = "Video templates for faceless documentary creators";
+const title = "Video Templates with Real Sample Films | Veedyoo";
 const description =
-  "Explore Veedyoo template styles for editorial explainers, business breakdowns, faceless documentaries, tech stories, minimal systems videos, and logistics explainers.";
+  "Seven documentary template styles — editorial, business, faceless documentary, tech, systems, logistics, nature — each with a real sample film generated and rendered by Veedyoo.";
 ---
 
 <BaseLayout title={title} description={description} path="/templates/">
   <main>
     <PageHero
       label="Templates"
-      title="Choose the creative language before you write the script"
-      description="Templates give solo creators a starting point for tone, pacing, visual motifs, scene types, and the kind of evidence the video should use."
+      title="Pick a style. Watch what it makes."
+      description="Every template shapes the voice of the script, the imagery, and the soundtrack — and each card below carries a real, unedited film produced with that style. What you watch is what you get."
       secondaryHref="/faceless-video-maker/"
       secondaryLabel="Faceless workflow"
     />
@@ -24,4 +24,10 @@ const description =
       </div>
     </section>
   </main>
+  <script is:inline>
+    document.addEventListener("play", (e) => {
+      if (e.target.tagName !== "VIDEO") return;
+      document.querySelectorAll("video").forEach((v) => { if (v !== e.target) v.pause(); });
+    }, true);
+  </script>
 </BaseLayout>

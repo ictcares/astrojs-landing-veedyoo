@@ -13,16 +13,37 @@ const accentClass = {
   teal: "bg-teal",
   amber: "bg-amber"
 }[template.accent];
+const hasSample = template.sample && template.sample.video;
 ---
 
-<a href={`/templates/${template.slug}/`} class="group flex h-full min-w-0 flex-col rounded-lg border border-[#3d3934] bg-ink-2 p-5 text-paper transition hover:-translate-y-1 hover:border-paper hover:shadow-hard">
-  <div class="mb-5 flex items-center justify-between gap-3">
-    <span class="metadata rounded border border-[#4a4238] px-2 py-1 text-[9px] text-paper/48">{template.pack}</span>
-    <span class={`h-3 w-10 rounded-sm ${accentClass}`} aria-hidden="true"></span>
+<article class="group flex h-full min-w-0 flex-col overflow-hidden rounded-lg border border-[#3d3934] bg-ink-2 text-paper transition hover:-translate-y-1 hover:border-paper hover:shadow-hard">
+  {hasSample && (
+    <div class="relative aspect-video bg-ink">
+      <video
+        class="h-full w-full object-cover"
+        controls
+        preload="none"
+        poster={template.sample.poster}
+        src={template.sample.video}
+        title={template.sample.title}
+      ></video>
+    </div>
+  )}
+  <div class="flex flex-1 flex-col p-5">
+    <div class="mb-4 flex items-center justify-between gap-3">
+      <span class="metadata rounded border border-[#4a4238] px-2 py-1 text-[9px] text-paper/48">{template.pack}</span>
+      <span class={`h-3 w-10 rounded-sm ${accentClass}`} aria-hidden="true"></span>
+    </div>
+    <h3 class="font-display text-xl font-bold leading-tight">
+      <a href={`/templates/${template.slug}/`} class="hover:text-coral">{template.name}</a>
+    </h3>
+    <p class="mt-3 flex-1 text-sm leading-6 text-paper/58">{template.promise}</p>
+    {hasSample && (
+      <p class="metadata mt-3 text-[9px] text-paper/40">SAMPLE: {template.sample.meta}</p>
+    )}
+    <div class="mt-4 flex flex-wrap gap-2">
+      {template.motifs.map((motif) => <span class="rounded border border-line px-2 py-1 text-xs text-paper/48">{motif}</span>)}
+    </div>
+    <a href={`/templates/${template.slug}/`} class="mt-5 text-sm font-semibold text-cyan underline underline-offset-4 hover:text-paper">Explore this template →</a>
   </div>
-  <h3 class="font-display text-xl font-bold leading-tight">{template.name}</h3>
-  <p class="mt-3 flex-1 text-sm leading-6 text-paper/58">{template.promise}</p>
-  <div class="mt-5 flex flex-wrap gap-2">
-    {template.motifs.map((motif) => <span class="rounded border border-line px-2 py-1 text-xs text-paper/48">{motif}</span>)}
-  </div>
-</a>
+</article>
