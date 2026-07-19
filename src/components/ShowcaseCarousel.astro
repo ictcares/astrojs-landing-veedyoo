@@ -1,0 +1,73 @@
+---
+import { showcase } from "@/data/showcase";
+
+// Horizontal scroll-snap carousel of real documentaries rendered by Veedyoo,
+// streamed straight from the CDN. Posters load lazily; video only on play.
+---
+
+{showcase.length > 0 && (
+  <section class="border-b border-line bg-ink" id="showcase">
+    <div class="mx-auto w-full max-w-[1180px] px-4 py-14 sm:px-6 lg:px-8 lg:py-18">
+      <div class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p class="metadata text-[10px] text-coral">MADE WITH VEEDYOO</p>
+          <h2 class="mt-3 font-display text-3xl font-bold leading-tight sm:text-4xl">Real output, unedited</h2>
+          <p class="mt-3 max-w-xl text-sm leading-7 text-paper/58">
+            Every film below was generated from a one-sentence topic and rendered in the cloud —
+            exactly what your first project will look like.
+          </p>
+        </div>
+        <div class="hidden gap-2 sm:flex">
+          <button type="button" data-carousel-prev aria-label="Previous videos" class="rounded-md border border-[#3d3934] px-3.5 py-2 text-paper/60 transition hover:border-paper hover:text-paper">←</button>
+          <button type="button" data-carousel-next aria-label="Next videos" class="rounded-md border border-[#3d3934] px-3.5 py-2 text-paper/60 transition hover:border-paper hover:text-paper">→</button>
+        </div>
+      </div>
+
+      <div
+        data-carousel
+        class="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {showcase.map((v) => (
+          <article class="w-[85%] shrink-0 snap-start overflow-hidden rounded-lg border border-[#3d3934] bg-ink-2 shadow-hard sm:w-[62%] lg:w-[48%]">
+            <div class="relative aspect-video bg-ink">
+              <video
+                class="h-full w-full object-cover"
+                controls
+                preload="none"
+                poster={v.poster}
+                src={v.video}
+                title={v.title}
+              ></video>
+            </div>
+            <div class="flex items-start justify-between gap-3 p-4">
+              <div class="min-w-0">
+                <h3 class="truncate font-display text-base font-bold text-paper">{v.title}</h3>
+                <p class="metadata mt-1.5 text-[9px] text-paper/45">{v.meta}</p>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<script is:inline>
+  (() => {
+    const track = document.querySelector("[data-carousel]");
+    if (!track) return;
+    const step = () => track.clientWidth * 0.7;
+    document.querySelector("[data-carousel-prev]")?.addEventListener("click", () =>
+      track.scrollBy({ left: -step(), behavior: "smooth" })
+    );
+    document.querySelector("[data-carousel-next]")?.addEventListener("click", () =>
+      track.scrollBy({ left: step(), behavior: "smooth" })
+    );
+    // Pause other videos when one starts playing.
+    track.addEventListener("play", (e) => {
+      track.querySelectorAll("video").forEach((v) => {
+        if (v !== e.target) v.pause();
+      });
+    }, true);
+  })();
+</script>

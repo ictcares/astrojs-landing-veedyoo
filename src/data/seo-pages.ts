@@ -2,80 +2,88 @@ export const seoPages = [
   {
     slug: "faceless-video-maker",
     title: "Faceless Video Maker",
-    metaTitle: "Faceless Video Maker for Documentary YouTube Workflows | Veedyoo",
+    metaTitle: "Faceless Video Maker — Finished YouTube Videos from a Topic | Veedyoo",
     description:
-      "Plan faceless YouTube documentaries with topic angles, continuity, scripts, storyboard scenes, previews, and render-ready structure.",
-    h1: "A faceless video maker for creators who plan before they render",
+      "Make faceless YouTube videos without filming: AI script, professional narration, cinematic visuals, music and captions — edited in a timeline, rendered in the cloud. From $5.",
+    h1: "The faceless video maker that delivers a finished film",
     intro:
-      "Veedyoo is for creators who want more than a script box. Start with a topic, shape the angle, build a continuity bible, plan scenes, preview the motion, and move toward export without losing the story.",
+      "No camera, no mic, no editing software. Type a topic and Veedyoo produces a complete faceless video — script, narration, archival-style imagery, music and word-synced captions — then lets you fine-tune every scene in a timeline editor before a cloud render delivers the MP4.",
     sections: [
       {
-        heading: "Turn one idea into a usable production plan",
-        body: "A strong faceless video needs structure before assets. Veedyoo keeps the brief, angle, narration, visual motifs, scene plan, and render decisions together so the video feels intentional from the first hook to the last line."
+        heading: "A whole production crew in one input box",
+        body: "One sentence becomes a narrated story told through 13 cinematic scene types: 3D globes, archival stills with Ken Burns motion, whiteboard sketches drawn on screen, kinetic typography, data scenes and more. Every scene is voiced by professional AI narration and timed to it automatically."
       },
       {
-        heading: "Made for long-form consistency",
-        body: "Long videos drift when every scene is generated in isolation. Veedyoo uses project-level continuity notes for tone, palette, camera language, motifs, and forbidden drift so each scene can follow the same creative direction."
+        heading: "Faceless doesn't mean generic",
+        body: "Eight genre registers — history, true crime, tech, business, geopolitics, space, nature, mystery — shape the script's voice, the image style and the soundtrack, so your channel keeps a consistent identity video after video."
+      },
+      {
+        heading: "Edit like a director, pay like a hobbyist",
+        body: "Open any video in the CapCut-style timeline: rewrite and re-voice narration, regenerate images, layer a camera bubble or lower-thirds, split and trim scenes. A typical one-minute faceless video costs about a dollar in credits, cloud render included."
       }
     ]
   },
   {
     slug: "documentary-video-maker",
     title: "Documentary Video Maker",
-    metaTitle: "AI Documentary Video Maker for Faceless Creators | Veedyoo",
+    metaTitle: "AI Documentary Video Maker — Topic to Finished Film | Veedyoo",
     description:
-      "Create documentary-style video workflows from a topic brief, with narrative angles, scene planning, storyboard direction, and export-ready structure.",
-    h1: "Turn a topic into a documentary plan before you render",
+      "Turn any topic into a finished documentary: AI-written script, narration, imagery, music, captions and cloud rendering, with a scene-by-scene timeline editor. Credits from $5.",
+    h1: "Turn a topic into a finished documentary",
     intro:
-      "Veedyoo helps solo creators shape a documentary argument before they render. The workflow is built around thesis, evidence, pacing, visual language, and scene-by-scene continuity.",
+      "Veedyoo is an AI documentary maker, not a clip generator. It writes a thesis-driven script, narrates it, illustrates every beat with the right scene type, scores it, captions it word-by-word — and hands you a real timeline editor before the final cloud render.",
     sections: [
       {
-        heading: "Narrative first, visuals second",
-        body: "Documentary quality comes from the argument. Veedyoo helps you define the thesis, choose the angle, and map the scenes before generating expensive visual assets."
+        heading: "Documentary structure, not stitched clips",
+        body: "The story comes first: a hook, chapters, evidence and an arc. The AI plans the film scene by scene — a 3D globe for the geography, a timeline for the chronology, a stat scene for the numbers, archival imagery for the mood — so the result watches like a documentary, not a slideshow."
       },
       {
-        heading: "Preview the story before export",
-        body: "Use the studio preview to check structure and pacing before committing to final render. That keeps paid provider calls focused on scenes that already make sense."
+        heading: "You direct the director",
+        body: "Every documentary opens in a timeline editor with live preview. Change the narration and re-voice one scene for pennies, regenerate any image, swap music moods, reorder chapters — then render when the cut is right."
+      },
+      {
+        heading: "Broadcast-grade delivery",
+        body: "Massively parallel cloud rendering produces the finished MP4 in minutes, plus an SRT subtitle file built from word-level timestamps. Download both and publish."
       }
     ]
   },
   {
     slug: "youtube-script-generator",
     title: "YouTube Script Generator",
-    metaTitle: "YouTube Script Generator for Faceless Documentary Videos | Veedyoo",
+    metaTitle: "YouTube Script Generator That Also Makes the Video | Veedyoo",
     description:
-      "Generate and refine YouTube scripts inside a production workflow with topic angles, scene timing, storyboard prompts, and narration structure.",
-    h1: "A YouTube script generator that stays connected to the video plan",
+      "Generate documentary-style YouTube scripts that become finished videos: narration, scene timing, visuals, music and captions in one workflow. From $5 in credits.",
+    h1: "A script generator that doesn't stop at the script",
     intro:
-      "A script is only useful when it matches the video plan. Veedyoo connects narration, chapter structure, scene visuals, timing, and continuity so the script can become a renderable project.",
+      "Most script generators hand you text and wish you luck. Veedyoo writes the script as a scene-by-scene film plan — then narrates it, illustrates it, scores it and renders it. The script and the video are the same document.",
     sections: [
       {
-        heading: "Write around scenes, not loose paragraphs",
-        body: "Each narration block belongs to a scene with duration, visual type, asset direction, and production notes. That makes script review closer to editing a real video plan."
+        heading: "Scripts written for the ear and the screen",
+        body: "Every narration block belongs to a scene with a duration, a visual treatment and timing derived from the voiceover itself. Genre registers keep the writing voice consistent — a true-crime script reads nothing like a nature one."
       },
       {
-        heading: "Keep the voice consistent",
-        body: "Tone, audience, pacing, and project-level style rules stay visible across the workflow, reducing the common drift between outline, script, storyboard, and final preview."
+        heading: "Edit a line, re-voice a scene",
+        body: "Rewrite any narration in the timeline editor and re-voice just that scene for about a cent. Word-level timestamps keep captions and on-screen emphasis synced to the new read automatically."
       }
     ]
   },
   {
     slug: "storyboard-generator",
     title: "Storyboard Generator",
-    metaTitle: "Storyboard Generator for AI Explainer and Documentary Videos | Veedyoo",
+    metaTitle: "AI Storyboard Generator That Renders the Final Video | Veedyoo",
     description:
-      "Plan storyboard scenes for faceless explainer videos with visual prompts, scene timing, asset direction, continuity notes, and motion preview.",
-    h1: "Storyboard faceless videos before you pay for final renders",
+      "Storyboard faceless and documentary videos scene by scene — visuals, narration, timing — then render the finished film from the same board. Credits from $5.",
+    h1: "Storyboards that become the actual video",
     intro:
-      "Veedyoo gives creators a place to plan scene visuals, timing, asset prompts, and continuity before exporting. The goal is simple: see the video logic before paying for high-cost generation.",
+      "In Veedyoo the storyboard isn't planning paperwork — it's the film itself. Each scene card carries its narration, visual, duration and style, previews live in the browser, and renders in full quality in the cloud.",
     sections: [
       {
-        heading: "Scene cards with production intent",
-        body: "Storyboard entries can carry narration, visual prompts, layout direction, duration, and continuity notes. That makes each scene easier to review and easier to repair."
+        heading: "Scene cards with real production power",
+        body: "Reorder, duplicate, retime and restyle scenes in a multi-track timeline. Thirteen scene types cover globes, maps, whiteboard sketches, kinetic type, data charts, archival imagery, footage and quotes — each one a storyboard card you can direct."
       },
       {
-        heading: "Preview and then commit",
-        body: "The browser preview and final render path are designed around the same video document, so the storyboard is not just planning text. It is the source for the final video workflow."
+        heading: "Preview free, render when ready",
+        body: "The live preview plays your whole cut before you spend a cent on rendering. When the board tells the story, one click sends it to the cloud and returns the MP4 with subtitles."
       }
     ]
   }

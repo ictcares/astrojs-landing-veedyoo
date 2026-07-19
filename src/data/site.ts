@@ -6,13 +6,16 @@ export const site = {
   description:
     "Veedyoo is an AI documentary video maker: type a topic and get a finished faceless documentary — script, narration, visuals, music and captions — then fine-tune it in a timeline editor and render in the cloud.",
   nav: [
-    { label: "Documentary maker", href: "/documentary-video-maker/" },
-    { label: "Faceless videos", href: "/faceless-video-maker/" },
+    { label: "Templates", href: "/templates/" },
     { label: "Use cases", href: "/use-cases/" },
-    { label: "About", href: "/about/" }
+    { label: "Pricing", href: "/pricing/" },
+    { label: "Blog", href: "/blog/" }
   ],
   footerNav: [
     { label: "About", href: "/about/" },
+    { label: "Contact", href: "/contact/" },
+    { label: "Documentary maker", href: "/documentary-video-maker/" },
+    { label: "Faceless videos", href: "/faceless-video-maker/" },
     { label: "Script generator", href: "/youtube-script-generator/" },
     { label: "Storyboard generator", href: "/storyboard-generator/" },
     { label: "Privacy", href: "/privacy/" },

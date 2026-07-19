@@ -4,6 +4,7 @@ import ButtonLink from "@/components/ButtonLink.astro";
 import ProductFrame from "@/components/ProductFrame.astro";
 import SectionHeader from "@/components/SectionHeader.astro";
 import TemplateCard from "@/components/TemplateCard.astro";
+import ShowcaseCarousel from "@/components/ShowcaseCarousel.astro";
 import { site, absoluteUrl } from "@/data/site";
 import { templates } from "@/data/templates";
 
@@ -108,6 +109,8 @@ const faqJsonLd = {
       </div>
     </section>
 
+    <ShowcaseCarousel />
+
     <section class="border-b border-line bg-ink">
       <div class="mx-auto w-full max-w-[1180px] px-4 py-14 sm:px-6 lg:px-8 lg:py-18">
         <SectionHeader
@@ -167,7 +170,7 @@ const faqJsonLd = {
             title="Start with a style that already knows the job"
             description="Each template gives the project a starting language for pacing, visual motifs, scene types, and the kind of evidence the video should use."
           />
-          <ButtonLink href="/use-cases/" label="Explore use cases" variant="ghost" class="mb-8 w-full sm:w-auto" />
+          <ButtonLink href="/templates/" label="Explore all templates" variant="ghost" class="mb-8 w-full sm:w-auto" />
         </div>
         <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {templates.slice(0, 6).map((template) => <TemplateCard template={template} />)}

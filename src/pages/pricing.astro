@@ -4,60 +4,70 @@ import ButtonLink from "@/components/ButtonLink.astro";
 import PageHero from "@/components/PageHero.astro";
 import { site } from "@/data/site";
 
-const plans = [
+const tiers = [
   {
-    name: "Starter",
-    audience: "Testing the topic-to-plan workflow",
-    items: ["Topic and angle planning", "Script and storyboard drafts", "Preview before render"]
+    name: "Free start",
+    price: "$0",
+    note: "at sign-up",
+    items: ["Starter credits included with your invite", "Full editor and live preview", "Every scene type and genre unlocked"]
   },
   {
-    name: "Creator",
-    audience: "Weekly faceless documentary work",
-    items: ["Template-led production", "Continuity bible", "Render-ready scene planning"]
+    name: "Pay as you go",
+    price: "$5+",
+    note: "top up any amount",
+    items: ["A typical 1-minute documentary ≈ $1 in credits", "Cloud rendering included", "Credits valid 1 month from purchase"],
+    featured: true
   },
   {
-    name: "Studio",
-    audience: "Higher-volume production",
-    items: ["Longer projects", "More asset passes", "Review-ready project structure"]
+    name: "No subscription",
+    price: "$0",
+    note: "monthly fees",
+    items: ["Pay only for what you generate and render", "Editing and previewing are always free", "Top up more only when you need it"]
   }
 ];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "Veedyoo credits",
+  description: "Pay-as-you-go credits for AI documentary video creation. Top up from $5; a typical one-minute documentary costs about $1 including cloud rendering.",
+  offers: { "@type": "Offer", price: "5", priceCurrency: "USD", availability: "https://schema.org/InStock" }
+};
 ---
 
-<BaseLayout title="Pricing coming soon" description="Veedyoo creator pricing is coming soon. Create an account to start planning faceless documentary videos in the current studio workflow." path="/pricing/">
+<BaseLayout title="Pricing — Pay-as-you-go AI Documentary Videos from $5" description="No subscription. Free starter credits at sign-up, then top up from $5 — a typical one-minute documentary costs about $1 in credits, cloud render included." path="/pricing/" jsonLd={jsonLd}>
   <main>
     <PageHero
       label="Pricing"
-      title="Creator pricing is coming soon"
-      description="No checkout lives on the public site yet. The plans below explain the intended shape while creators test the studio workflow through the app."
-      secondaryHref="/templates/"
-      secondaryLabel="View templates"
+      title="Pay for videos, not for a subscription"
+      description="Sign-up is free and includes starter credits. Top up any amount from $5 when you need more — editing and previewing never cost a cent; credits are only spent when you generate assets or render."
+      secondaryHref="/use-cases/"
+      secondaryLabel="See use cases"
     />
     <section class="mx-auto w-full max-w-[1180px] px-4 py-14 sm:px-6 lg:px-8">
       <div class="grid gap-4 lg:grid-cols-3">
-        {plans.map((plan, index) => (
-          <article class={`rounded-lg border bg-ink-2 p-6 ${index === 1 ? "border-coral shadow-hard-lg" : "border-[#3d3934]"}`}>
-            <div class="flex items-start justify-between gap-4">
-              <h2 class="font-display text-2xl font-bold">{plan.name}</h2>
-              <span class="metadata rounded bg-sand px-2 py-1 text-[8.5px] text-ink">COMING SOON</span>
-            </div>
-            <p class="mt-3 text-sm text-paper/52">{plan.audience}</p>
-            <ul class="mt-6 space-y-3">
-              {plan.items.map((item) => (
-                <li class="flex gap-3 text-sm leading-6 text-paper/62">
-                  <span class="mt-2 h-2 w-2 flex-none rounded-full bg-cyan"></span>
-                  <span>{item}</span>
-                </li>
+        {tiers.map((tier) => (
+          <article class={`rounded-lg border bg-ink-2 p-6 ${tier.featured ? "border-coral shadow-hard-lg" : "border-[#3d3934]"}`}>
+            <h2 class="font-display text-2xl font-bold">{tier.name}</h2>
+            <p class="mt-3"><span class="font-display text-4xl font-bold text-paper">{tier.price}</span> <span class="text-sm text-paper/50">{tier.note}</span></p>
+            <ul class="mt-5 space-y-2.5">
+              {tier.items.map((item) => (
+                <li class="flex gap-2 text-sm leading-6 text-paper/62"><span class="text-cyan">✓</span>{item}</li>
               ))}
             </ul>
           </article>
         ))}
       </div>
-      <div class="mt-8 panel p-6">
-        <h2 class="font-display text-2xl font-bold">No checkout on this site</h2>
-        <p class="mt-3 max-w-2xl text-sm leading-6 text-paper/58">
-          The landing page stays static. Account creation and any future billing flow remain inside the Veedyoo studio at app.veedyoo.com.
+      <div class="mt-10 rounded-lg border border-line bg-ink-2 p-6">
+        <h2 class="font-display text-xl font-bold">What does a video actually cost?</h2>
+        <p class="mt-3 max-w-3xl text-sm leading-7 text-paper/58">
+          Costs scale with length and how much you regenerate. As reference points from real productions: a 1-minute, 13-scene documentary
+          cost about $0.50–$0.80 in credits including the render; a 2.5-minute film came in near $1.30. Re-voicing a single scene costs
+          about a cent, a fresh AI image about six cents, and re-renders are charged only for compute.
         </p>
-        <ButtonLink href={site.signupUrl} label="Create your first plan" class="mt-5" />
+      </div>
+      <div class="mt-10 flex justify-center">
+        <ButtonLink href={site.signupUrl} label="Start free →" />
       </div>
     </section>
   </main>
