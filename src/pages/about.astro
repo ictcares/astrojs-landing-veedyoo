@@ -1,9 +1,12 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/PageHero.astro";
+import { ORG, webApplication } from "@/lib/jsonld";
+
+const jsonLd = [{ "@context": "https://schema.org", ...ORG }, webApplication()];
 ---
 
-<BaseLayout title="About Veedyoo" description="Veedyoo is a web SaaS for AI explainer and documentary video creation, built around planning, continuity, previews, and final exports without visual drift." path="/about/">
+<BaseLayout title="About Veedyoo" description="Veedyoo is a web SaaS for AI explainer and documentary video creation, built around planning, continuity, previews, and final exports without visual drift." path="/about/" jsonLd={jsonLd}>
   <main>
     <PageHero
       label="About"

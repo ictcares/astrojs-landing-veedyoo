@@ -2,7 +2,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ButtonLink from "@/components/ButtonLink.astro";
 import PageHero from "@/components/PageHero.astro";
-import { site } from "@/data/site";
+import { site, absoluteUrl } from "@/data/site";
 
 const useCases = [
   ["History documentaries", "Turn a shipwreck, an empire, or a forgotten invention into a narrated film with archival-style imagery, maps, and timelines. The classic faceless-channel format — produced in an afternoon.", "/documentary-video-maker/"],
@@ -12,9 +12,20 @@ const useCases = [
   ["Educational channels", "Structure a lesson as chapters with word-synced captions and on-screen emphasis. Re-voice a single line when the curriculum changes instead of re-editing a whole video.", "/youtube-script-generator/"],
   ["Rapid channel testing", "Test five topics for about a dollar each before committing to a niche. Full videos, not mockups — publish the winners, archive the rest.", "/storyboard-generator/"]
 ];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Veedyoo use cases",
+  itemListElement: useCases.map(([title, body], i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: { "@type": "CreativeWork", name: title, description: body, url: absoluteUrl("/use-cases/") }
+  }))
+};
 ---
 
-<BaseLayout title="Use Cases — Faceless & Documentary AI Videos" description="What creators make with Veedyoo: history documentaries, true crime, business breakdowns, science explainers, educational channels — finished faceless videos from a topic." path="/use-cases/">
+<BaseLayout title="Use Cases — Faceless & Documentary AI Videos" description="What creators make with Veedyoo: history documentaries, true crime, business breakdowns, science explainers, educational channels — finished faceless videos from a topic." path="/use-cases/" jsonLd={jsonLd}>
   <main>
     <PageHero
       label="Use cases"

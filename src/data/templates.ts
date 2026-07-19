@@ -14,6 +14,8 @@ export type Template = {
     video: string;
     poster: string;
     meta: string;
+    duration?: string;
+    uploadDate?: string;
   };
 };
 
@@ -31,7 +33,9 @@ export const templates: Template[] = [
       title: "Voyager 1: Still Calling Home From Interstellar Space",
       video: "https://cdn.veedyoo.com/projects/cmrrhxfk4000001nmgc4mexzz/renders/cmrri5rk6001h01nmrqekepez.mp4",
       poster: "https://cdn.veedyoo.com/projects/cmrrhxfk4000001nmgc4mexzz/img/s04-imageUrl.png",
-      meta: "SPACE & SCIENCE · PRODUCED FOR $1.29 · UNEDITED"
+      meta: "SPACE & SCIENCE · PRODUCED FOR $1.29 · UNEDITED",
+      duration: "PT2M35S",
+      uploadDate: "2026-07-19"
     }
   },
   {
@@ -47,7 +51,9 @@ export const templates: Template[] = [
       title: "Blockbuster: The Late Fee That Built Netflix and Killed an Empire",
       video: "https://cdn.veedyoo.com/projects/cmrriouh9002j01nmfcnhjixj/renders/cmrrj3ihw001v01po2hbnavsp.mp4",
       poster: "https://cdn.veedyoo.com/projects/cmrriouh9002j01nmfcnhjixj/img/s03-bgImageUrl.png",
-      meta: "BUSINESS DRAMA · PRODUCED FOR $1.32 · UNEDITED"
+      meta: "BUSINESS DRAMA · PRODUCED FOR $1.32 · UNEDITED",
+      duration: "PT2M25S",
+      uploadDate: "2026-07-19"
     }
   },
   {
@@ -63,7 +69,9 @@ export const templates: Template[] = [
       title: "D.B. Cooper: The Man Who Vanished at Ten Thousand Feet",
       video: "https://cdn.veedyoo.com/projects/cmrrhy06z000101nm9b2gjojr/renders/cmrri5v9h001i01nmy377ns5w.mp4",
       poster: "https://cdn.veedyoo.com/projects/cmrrhy06z000101nm9b2gjojr/img/s02-imageUrl.png",
-      meta: "MYSTERY · PRODUCED FOR $1.08 · UNEDITED"
+      meta: "MYSTERY · PRODUCED FOR $1.08 · UNEDITED",
+      duration: "PT2M36S",
+      uploadDate: "2026-07-19"
     }
   },
   {
@@ -79,7 +87,9 @@ export const templates: Template[] = [
       title: "The Floppy Disk: How 1.44 Megabytes Ruled the World",
       video: "https://cdn.veedyoo.com/projects/cmrri5xw3001j01nmkal37foe/renders/cmrric11o002f01nm7cn5yfe5.mp4",
       poster: "https://cdn.veedyoo.com/projects/cmrri5xw3001j01nmkal37foe/img/s02-imageUrl.png",
-      meta: "TECH HISTORY · PRODUCED FOR $1.29 · UNEDITED"
+      meta: "TECH HISTORY · PRODUCED FOR $1.29 · UNEDITED",
+      duration: "PT2M26S",
+      uploadDate: "2026-07-19"
     }
   },
   {
@@ -95,7 +105,9 @@ export const templates: Template[] = [
       title: "The Panama Canal Is Running Out of Water",
       video: "https://cdn.veedyoo.com/projects/cmrrip14u002k01nmqx7eg8vk/renders/cmrrj7joh002p01pog69nsz32.mp4",
       poster: "https://cdn.veedyoo.com/projects/cmrrip14u002k01nmqx7eg8vk/img/s03-imageUrl.png",
-      meta: "GEOPOLITICS · PRODUCED FOR $1.59 · UNEDITED"
+      meta: "GEOPOLITICS · PRODUCED FOR $1.59 · UNEDITED",
+      duration: "PT2M25S",
+      uploadDate: "2026-07-19"
     }
   },
   {
@@ -111,7 +123,9 @@ export const templates: Template[] = [
       title: "The Midnight Machine: How Overnight Shipping Actually Works",
       video: "https://cdn.veedyoo.com/projects/cmrrip7tu002l01nmfynfdoyp/renders/cmrrj3lw9001w01pouwj803r9.mp4",
       poster: "https://cdn.veedyoo.com/projects/cmrrip7tu002l01nmfynfdoyp/img/s02-imageUrl.png",
-      meta: "LOGISTICS · PRODUCED FOR $1.33 · UNEDITED"
+      meta: "LOGISTICS · PRODUCED FOR $1.33 · UNEDITED",
+      duration: "PT2M32S",
+      uploadDate: "2026-07-19"
     }
   },
   {
@@ -127,7 +141,9 @@ export const templates: Template[] = [
       title: "Honeybees: The Tiny Workforce Feeding the World",
       video: "https://cdn.veedyoo.com/projects/cmrrj042t000d01pokqwts28d/renders/cmrrj7nsv002q01poh2zhu8qn.mp4",
       poster: "https://cdn.veedyoo.com/projects/cmrrj042t000d01pokqwts28d/img/s02-imageUrl.png",
-      meta: "NATURE & ENVIRONMENT · PRODUCED FOR $0.67 · UNEDITED"
+      meta: "NATURE & ENVIRONMENT · PRODUCED FOR $0.67 · UNEDITED",
+      duration: "PT2M18S",
+      uploadDate: "2026-07-19"
     }
   }
 ];

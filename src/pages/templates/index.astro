@@ -3,13 +3,33 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/PageHero.astro";
 import TemplateCard from "@/components/TemplateCard.astro";
 import { templates } from "@/data/templates";
+import { videoObject } from "@/lib/jsonld";
+import { absoluteUrl } from "@/data/site";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Veedyoo video templates",
+  itemListElement: templates.map((t, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: {
+      "@type": "CreativeWork",
+      name: t.name,
+      url: absoluteUrl(`/templates/${t.slug}/`),
+      description: t.promise,
+      genre: t.pack,
+      ...(t.sample && t.sample.video ? { video: videoObject(t.sample) } : {})
+    }
+  }))
+};
 
 const title = "Video Templates with Real Sample Films | Veedyoo";
 const description =
   "Seven documentary template styles — editorial, business, faceless documentary, tech, systems, logistics, nature — each with a real sample film generated and rendered by Veedyoo.";
 ---
 
-<BaseLayout title={title} description={description} path="/templates/">
+<BaseLayout title={title} description={description} path="/templates/" jsonLd={jsonLd}>
   <main>
     <PageHero
       label="Templates"

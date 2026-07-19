@@ -4,6 +4,8 @@ import ButtonLink from "@/components/ButtonLink.astro";
 import PageHero from "@/components/PageHero.astro";
 import { site } from "@/data/site";
 import { templates } from "@/data/templates";
+import { videoObject } from "@/lib/jsonld";
+import { absoluteUrl } from "@/data/site";
 
 export function getStaticPaths() {
   return templates.map((template) => ({
@@ -13,11 +15,21 @@ export function getStaticPaths() {
 }
 
 const { template } = Astro.props;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  name: `${template.name} video template`,
+  url: absoluteUrl(`/templates/${template.slug}/`),
+  description: template.promise,
+  genre: template.pack,
+  creator: { "@type": "Organization", name: "Veedyoo" },
+  ...(template.sample && template.sample.video ? { video: videoObject(template.sample) } : {})
+};
 const title = `${template.name} video template`;
 const description = `${template.name} helps faceless creators plan ${template.bestFor.toLowerCase()} with ${template.tone.toLowerCase()} pacing, scene logic, and visual structure.`;
 ---
 
-<BaseLayout title={title} description={description} path={`/templates/${template.slug}/`}>
+<BaseLayout title={title} description={description} path={`/templates/${template.slug}/`} jsonLd={jsonLd}>
   <main>
     <PageHero
       label={`${template.pack} template`}

@@ -6,26 +6,15 @@ import SectionHeader from "@/components/SectionHeader.astro";
 import TemplateCard from "@/components/TemplateCard.astro";
 import ShowcaseCarousel from "@/components/ShowcaseCarousel.astro";
 import { site, absoluteUrl } from "@/data/site";
+import { showcase } from "@/data/showcase";
+import { webApplication, videoItemList } from "@/lib/jsonld";
 import { templates } from "@/data/templates";
 
 const title = "AI Documentary Video Maker — Topic to Finished Film";
 const description =
   "Type a topic and Veedyoo makes the documentary: AI script, narration, imagery, music and captions. Edit every scene in a timeline editor, then render a faceless YouTube-ready video in the cloud. Credits from $5.";
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: "Veedyoo",
-  applicationCategory: "MultimediaApplication",
-  operatingSystem: "Web",
-  url: absoluteUrl("/"),
-  description,
-  offers: {
-    "@type": "Offer",
-    price: "5",
-    priceCurrency: "USD",
-    availability: "https://schema.org/InStock"
-  }
-};
+const jsonLd = webApplication();
+const videosJsonLd = videoItemList(showcase, "Documentaries made with Veedyoo");
 
 const workflow = [
   ["01", "Type a topic", "A ship, a company, a mystery — one sentence is enough to start a documentary."],
@@ -64,7 +53,7 @@ const faqJsonLd = {
 };
 ---
 
-<BaseLayout title={title} description={description} path="/" jsonLd={[jsonLd, faqJsonLd]}>
+<BaseLayout title={title} description={description} path="/" jsonLd={[jsonLd, faqJsonLd, videosJsonLd]}>
   <main>
     <section class="relative overflow-hidden border-b border-line">
       <div class="mx-auto grid w-full max-w-[1180px] gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:py-18">
